@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101e35">
+<meta name="description" content="Dielektrik qo‘lqop va etiklarni sinash bo‘yicha o‘zbek tilidagi interaktiv 3D o‘quv laboratoriyasi. 10 variant, grafiklar, CSV va Word hujjatlar.">
+<title>ElektroLab — Dielektrik himoya vositalarini sinash</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101e35'/%3E%3Cpath d='M36 8 17 35h13l-3 21 21-30H34z' fill='%23facc45'/%3E%3C/svg%3E">
+<style>
+:root{--navy:#101e35;--navy2:#192c48;--ink:#17263e;--muted:#6c798d;--line:#e2e8ef;--paper:#f3f6f9;--white:#fff;--yellow:#f7ca49;--blue:#3375d9;--green:#14836f;--orange:#b96816;--red:#be3e4b;--radius:18px;--shadow:0 6px 24px #152b4610}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.55 Inter,"Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.46}button,a{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #4b91ff;outline-offset:3px}button{transition:background .16s,transform .16s,border-color .16s}button:active:not(:disabled){transform:translateY(1px)}a{color:var(--blue)}[hidden]{display:none!important}.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:middle}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.app{display:flex;min-height:100vh}.sidebar{width:222px;flex:none;background:var(--navy);color:#fff;position:fixed;inset:0 auto 0 0;display:flex;flex-direction:column;padding:29px 18px 21px;z-index:20}.brand{display:flex;align-items:center;gap:10px;padding:0 10px}.brand-mark{width:36px;height:40px;background:var(--yellow);border-radius:10px;color:var(--navy);display:grid;place-items:center}.brand-mark .icon{width:25px;height:25px}.brand-name{font-size:23px;font-weight:800;letter-spacing:-.9px}.brand-sub{color:#8f9eb6;font-size:10px;letter-spacing:1.85px;margin:4px 0 0 57px}.nav-heading{font-size:10px;font-weight:700;color:#778aa5;letter-spacing:1.7px;margin:44px 13px 13px}.nav{display:grid;gap:7px}.nav-btn{border:0;background:none;color:#a4b3ca;display:flex;align-items:center;gap:12px;padding:13px 13px;border-radius:10px;text-align:left;font-size:13px;font-weight:600}.nav-btn:hover{background:#ffffff0b;color:white}.nav-btn.active{background:var(--yellow);color:var(--navy)}.nav-btn .count{margin-left:auto;font-size:10px;padding:1px 6px;border-radius:5px;background:#ffffff15}.nav-btn.active .count{background:#101e3510}.sidebar-bottom{margin-top:auto;padding:20px 10px 0}.sidebar-note{border:1px solid #3c4960;border-radius:12px;padding:14px;color:#a7b6cc;font-size:11px}.sidebar-note .icon{color:var(--yellow);margin-bottom:8px}.sidebar-note strong{display:block;font-size:12px;color:#dce5f1;margin-bottom:5px}.sidebar-footer{font-size:10px;color:#71829e;margin:19px 0 0;letter-spacing:.6px}.workspace{margin-left:222px;flex:1;min-width:0}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;background:#ffffffd9;border-bottom:1px solid var(--line);gap:16px}.breadcrumb{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px}.breadcrumb strong{color:var(--ink);font-weight:600}.top-actions{display:flex;gap:14px;align-items:center}.storage-state{font-size:11px;color:var(--muted);display:flex;gap:7px;align-items:center}.dot{width:6px;height:6px;border-radius:50%;background:#279b7d;display:inline-block;flex:none}.avatar{width:32px;height:32px;border-radius:50%;background:#edf1f6;display:grid;place-items:center;font-size:12px;font-weight:700}.content{max-width:1560px;margin:auto;padding:28px 34px 42px}.page-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:21px}.eyebrow{font-size:10px;font-weight:800;letter-spacing:1.8px;color:var(--blue);margin:0 0 8px}h1{font-size:clamp(25px,2.6vw,36px);line-height:1.15;letter-spacing:-1.1px;margin:0 0 11px;font-weight:750}h2{font-size:18px;letter-spacing:-.4px;margin:0}h3{font-size:14px;margin:0 0 8px}p{margin:0 0 10px}.lead{font-size:12px;line-height:1.7;color:var(--muted);max-width:620px;margin:0}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:6px 10px;font-size:10px;font-weight:700;white-space:nowrap;background:white}.pill.yellow{color:#7b5c0d;background:#fffae9;border-color:#f2dfa0}.pill.green{color:var(--green);background:#ecf8f3;border-color:#cfe9de}.pill.blue{color:var(--blue);background:#eef4ff;border-color:#d5e3fb}.pill.red{color:var(--red);background:#fff0f0;border-color:#f4cccc}.heading-actions{padding-top:6px;display:flex;gap:8px;align-items:center}.student-card{border:1px solid var(--line);background:#fff;border-radius:13px;padding:15px 18px;display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:18px;margin-bottom:22px}.field-label{display:block;font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--muted);margin:0 0 5px}.field{width:100%;border:1px solid #dce3ec;border-radius:8px;background:#fff;color:var(--ink);padding:10px 11px;min-height:41px}.student-card .field{border:0;background:#f4f7fa;padding:9px 11px;min-height:38px;font-size:12px}.field.invalid{border:2px solid var(--red)!important}.field:disabled{background:#f4f6f9;color:#7e8897}.lab-grid{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:20px;align-items:start}.lab-main{min-width:0}.scene-card{border-radius:var(--radius);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow);background:#fff}.scene-header{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:white;border-bottom:1px solid var(--line)}.small-title{font-size:12px;font-weight:700}.small-meta{color:var(--muted);font-size:10px}.scene-title{display:flex;gap:9px;align-items:center}.scene-title>.icon{color:var(--blue);width:18px}.scene-wrap{position:relative;height:395px;background:linear-gradient(135deg,#e7eef6,#f7f9fc);overflow:hidden}.scene-mount{position:absolute;inset:0}.scene-mount canvas{display:block;width:100%;height:100%;outline:none}.scene-loading{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:var(--muted);font-size:12px;gap:12px}.spinner{border:3px solid #d7e1ee;border-top-color:var(--blue);width:28px;height:28px;border-radius:50%;animation:spin .8s linear infinite;margin:auto}@keyframes spin{to{transform:rotate(360deg)}}.scene-tag{position:absolute;top:15px;left:16px;font-size:9px;font-weight:800;letter-spacing:1.2px;color:#56718f;background:#ffffffd9;border:1px solid #ffffffdb;border-radius:6px;padding:5px 8px;pointer-events:none}.scene-tools{position:absolute;right:14px;top:13px;display:flex;gap:6px}.icon-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #dbe3ec;background:#fff;color:#5e7189;border-radius:8px;width:32px;height:32px;padding:6px}.icon-btn:hover{color:var(--ink);background:#f2f6fb}.icon-btn .icon{width:17px;height:17px}.scene-hint{position:absolute;bottom:12px;left:14px;color:#647990;background:#ffffffd9;font-size:9px;padding:5px 8px;border-radius:5px;pointer-events:none}.scene-bottom{display:flex;align-items:center;gap:10px;min-height:59px;padding:10px 16px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.scene-bottom>.icon{color:var(--blue);width:17px}.scene-bottom strong{color:var(--ink);font-weight:600}.scene-bottom #objectText{font-size:10px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:14px}.metric{padding:15px 15px 12px;border:1px solid var(--line);background:#fff;border-radius:12px;min-width:0}.metric-label{font-size:9px;font-weight:800;letter-spacing:1px;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:3px}.metric-label .icon{width:14px;height:14px;color:#9aa9bb}.metric-reading{display:flex;gap:5px;align-items:baseline;white-space:nowrap;margin:8px 0 3px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-weight:700;font-variant-numeric:tabular-nums}.metric-value{font-size:29px;letter-spacing:-1.3px}.metric-unit{font-size:12px;color:var(--muted)}.metric-foot{font-size:9px;color:var(--muted)}.metric.current{border-bottom:3px solid var(--yellow)}.metric.voltage{border-bottom:3px solid var(--blue)}.metric.timer{border-bottom:3px solid #c2cddd}.metric.over{background:#fff5ef}.metric.over .metric-value{color:var(--orange)}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.panel-head h2{font-size:14px;letter-spacing:0}.panel-head>.icon{width:17px;color:var(--muted)}.settings-panel{box-shadow:var(--shadow)}.group{margin-bottom:18px}.group-label{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:650;margin-bottom:8px;gap:10px}.group-label .unit{font-size:10px;color:var(--muted);font-weight:400}.device-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px}.device-btn{padding:11px 5px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--muted);display:flex;gap:7px;align-items:center;justify-content:center;font-size:11px;font-weight:600}.device-btn .icon{width:22px;height:22px}.device-btn.selected{background:#fff9e6;border-color:#e7c65c;color:#5d4c22;box-shadow:0 0 0 1px #e7c65c22}.group select{padding:9px 10px;font-size:11px}.range-row{display:flex;gap:12px;align-items:center}.range-row input[type=range]{width:100%;accent-color:var(--blue);height:5px;cursor:pointer;min-width:0}.range-number{width:66px;border:1px solid var(--line);border-radius:7px;background:#f7f9fc;text-align:center;padding:7px 3px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}.range-extremes{display:flex;justify-content:space-between;font-size:9px;color:#8c98a8;margin-top:4px;padding-right:77px}.settings-rule{border:0;border-top:1px solid var(--line);margin:17px 0}.limit-box{display:flex;justify-content:space-between;align-items:center;border-radius:8px;background:#f4f7fa;padding:9px 10px;margin-bottom:13px;font-size:10px;color:var(--muted)}.limit-box strong{color:var(--ink);font-size:12px;font-variant-numeric:tabular-nums}.speed-row{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:16px;font-size:10px;color:var(--muted)}.speed-switch{display:flex;gap:3px;background:#f3f6f9;border:1px solid var(--line);padding:2px;border-radius:6px}.speed-btn{background:none;border:0;color:var(--muted);font-size:10px;padding:4px 8px;border-radius:4px}.speed-btn.selected{background:var(--navy);color:white}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:9px;font-size:11px;font-weight:700;border:1px solid var(--line);background:white;color:var(--ink);min-height:39px;text-decoration:none}.btn .icon{width:16px;height:16px}.btn:hover:not(:disabled){background:#f0f4f9;border-color:#c3cede}.btn.primary{background:var(--yellow);border-color:var(--yellow);color:#2d2a1a}.btn.primary:hover:not(:disabled){background:#efbc29}.btn.navy{background:var(--navy);border-color:var(--navy);color:white}.btn.navy:hover:not(:disabled){background:#243a59}.btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}.btn.small{padding:6px 10px;min-height:31px;font-size:10px}.btn.full{width:100%}.btn.danger{color:var(--red);border-color:#ecc6c9}.action-row{display:flex;gap:8px;margin-top:8px}.action-row>.btn{flex:1}.control-note{text-align:center;font-size:9px;color:var(--muted);line-height:1.5;margin:10px 0 0}.run-progress{margin:17px 0 0}.progress-track{height:5px;border-radius:4px;background:#e9edf3;overflow:hidden}.progress-bar{height:100%;width:0;background:var(--blue);transition:width .12s linear}.progress-labels{display:flex;justify-content:space-between;font-size:8px;color:var(--muted);margin-top:6px;gap:4px}.result-banner{margin-top:15px;border-radius:12px;background:#ecf8f2;border:1px solid #c5e4d5;display:flex;align-items:flex-start;gap:12px;padding:15px}.result-banner.warning{background:#fff6e8;border-color:#efd4a7}.result-banner.danger{background:#fff0f1;border-color:#efc4c8}.result-icon{width:28px;height:28px;border-radius:50%;background:#d8efe4;display:grid;place-items:center;color:var(--green);flex:none}.warning .result-icon{background:#fae6c7;color:var(--orange)}.danger .result-icon{background:#f7dadd;color:var(--red)}.result-copy{min-width:0;flex:1}.result-copy strong{display:block;font-size:12px;margin-bottom:4px}.result-copy p{font-size:10px;color:#5f7469;margin:0}.warning .result-copy p{color:#8c6b40}.danger .result-copy p{color:#91616a}.result-banner .btn{align-self:center;white-space:nowrap;font-size:10px}.chart-card{margin-top:20px}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:17px}.section-head p{font-size:10px;color:var(--muted);margin:4px 0 0}.section-head h2{font-size:14px}.chart-legend{display:flex;gap:14px;font-size:9px;color:var(--muted);flex-wrap:wrap}.legend-item{display:flex;gap:5px;align-items:center;white-space:nowrap}.legend-line{width:15px;height:3px;background:var(--blue);border-radius:2px}.legend-line.yellow{background:#dca516}.legend-line.dashed{height:0;border-top:2px dashed #d16d3b;background:none}.chart-wrap{position:relative;height:275px}.chart-wrap canvas{width:100%;height:100%;display:block;touch-action:pan-y}.chart-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.chart-empty span{background:#fffffff0;border:1px solid var(--line);padding:9px 14px;border-radius:8px;color:var(--muted);font-size:11px;text-align:center}.chart-readout{font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;min-height:19px;text-align:center}.model-details{margin-top:15px;border:1px solid var(--line);border-radius:12px;background:white;font-size:11px}.model-details summary{cursor:pointer;padding:13px 17px;font-weight:600;color:#63738a}.model-content{padding:0 18px 18px;color:var(--muted);line-height:1.7}.model-formula{font-family:Consolas,monospace;color:var(--ink);background:#f5f7fa;padding:12px;border-radius:7px;font-size:12px;overflow-wrap:anywhere}.model-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:10px 0}.model-facts div{background:#f7f9fc;border-radius:7px;padding:9px}.model-facts small{display:block;font-size:9px;color:var(--muted)}.model-facts strong{font-size:11px;color:var(--ink)}.sources{font-size:10px;display:flex;gap:12px;flex-wrap:wrap;margin-top:11px}.theory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.theory-item{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:white}.theory-item .number{font-family:Consolas,monospace;font-size:13px;color:#9aaabd;display:block;margin-bottom:12px}.theory-item h3{font-size:17px;margin-bottom:10px}.theory-item p{font-size:13px;color:var(--muted);line-height:1.8;margin:0}.theory-item:last-child{grid-column:1/-1;background:var(--navy);color:white;border:0}.theory-item:last-child p{color:#b8c6db}.theory-item:last-child .number{color:var(--yellow)}.notice{display:flex;align-items:flex-start;gap:10px;padding:15px 18px;border-radius:12px;background:#fff9e8;border:1px solid #ebdeba;color:#7f6a34;font-size:11px;line-height:1.7;margin-bottom:19px}.notice .icon{flex:none;color:#b1892e;margin-top:2px}.notice p{margin:0}.variant-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0 0 24px}.variant-card{border:1px solid var(--line);background:white;border-radius:12px;padding:14px;text-align:left;color:var(--ink);position:relative}.variant-card:hover{border-color:#9aafcb;background:#f9fbfe}.variant-card.active{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue);background:#f2f7ff}.variant-card strong{font-family:Consolas,monospace;font-size:22px;display:block;margin-bottom:5px}.variant-card span{display:block;color:var(--muted);font-size:10px}.variant-card .done-mark{position:absolute;top:12px;right:10px;color:var(--green);font-size:12px}.worksheet{border:1px solid var(--line);background:white;border-radius:var(--radius);padding:24px}.worksheet-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:19px}.worksheet-heading p{font-size:11px;color:var(--muted);margin:5px 0 0}.worksheet-title{font-size:22px;font-weight:700;letter-spacing:-.5px}.given-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:18px}.given-cell{padding:12px;background:#f5f7fa;border-radius:9px;min-width:0}.given-cell span{display:block;font-size:9px;color:var(--muted);margin-bottom:4px}.given-cell strong{font-size:11px}.task-box{font-size:12px;line-height:1.8;color:#536780;border-left:3px solid var(--yellow);padding:6px 13px;background:#fffcf3;margin-bottom:20px}.task-box strong{color:var(--ink)}.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:23px}.note-field .field-label{font-size:11px;letter-spacing:0;color:var(--ink);margin-bottom:9px}.note-field textarea{min-height:170px;resize:vertical;font-size:12px;line-height:1.8;background:#fcfdfe}.worksheet .chart-wrap{height:255px;margin-top:20px}.button-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:17px}.button-row .subtle{font-size:10px;color:var(--muted);margin-left:auto}.table-wrap{overflow:auto;width:100%;border:1px solid var(--line);border-radius:9px}table{width:100%;border-collapse:collapse;font-size:11px;text-align:left}th{background:#f5f7fa;font-size:9px;text-transform:uppercase;letter-spacing:.3px;color:var(--muted);font-weight:700;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}td{padding:12px;border-bottom:1px solid #edf0f5;color:#465b75;vertical-align:middle}tbody tr:last-child td{border-bottom:0}td .primary-text{display:block;color:var(--ink);font-weight:600;font-size:11px}td small{font-size:9px;display:block;color:var(--muted);margin-top:3px}.table-empty{text-align:center;padding:35px 15px;color:var(--muted);font-size:12px}.status-label{font-size:10px;font-weight:600;display:inline-block}.status-label.pass{color:var(--green)}.status-label.over{color:var(--orange)}.status-label.breakdown{color:var(--red)}.journal-toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:17px}.journal-toolbar .actions{display:flex;gap:7px;flex-wrap:wrap}.journal-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:21px}.stat{padding:18px;background:white;border:1px solid var(--line);border-radius:12px}.stat span{font-size:10px;color:var(--muted)}.stat strong{font-size:28px;font-family:Consolas,monospace;display:block;margin-top:5px}.small-note{font-size:10px;color:var(--muted);line-height:1.7;margin-top:13px}.docs-hero{border:1px solid var(--line);border-radius:var(--radius);background:white;padding:27px}.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}.doc-card{padding:23px;background:#f6f8fb;border:1px solid var(--line);border-radius:13px}.doc-icon{width:43px;height:51px;display:grid;place-items:center;border:1px solid #d1deef;background:#eaf1fc;color:#3473c4;border-radius:7px;margin-bottom:17px}.doc-icon .icon{width:25px;height:25px}.doc-card h3{font-size:15px;overflow-wrap:anywhere}.doc-card p{font-size:12px;line-height:1.8;color:var(--muted);margin-bottom:19px}.doc-status{font-size:11px;color:var(--muted);margin-top:13px;min-height:20px}.doc-status.error{color:var(--red)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:25px 0}.step span{display:grid;place-items:center;background:#edf2f8;color:#5d7795;font-size:11px;font-weight:700;width:25px;height:25px;border-radius:50%;margin-bottom:9px}.step p{font-size:12px;color:var(--muted)}.help-links{border-top:1px solid var(--line);padding-top:16px;font-size:11px;color:var(--muted)}.toast{position:fixed;bottom:25px;left:calc(50% + 90px);transform:translateX(-50%);z-index:100;background:var(--navy);color:#fff;box-shadow:0 8px 32px #11182735;border-radius:10px;padding:13px 19px;font-size:12px;max-width:min(600px,90vw);text-align:center}.footer{margin-top:26px;display:flex;justify-content:space-between;color:#94a0b1;font-size:9px;gap:15px}.print-area{display:none}.mobile-brand{display:none}.mobile-nav-label{display:none}noscript{display:block;margin:30px;padding:25px;background:#fff0d1;color:#5e4219;font-size:18px}
+@media(min-width:1450px){.scene-wrap{height:450px}.settings-panel{padding:24px}.group{margin-bottom:23px}.metric-value{font-size:34px}.scene-bottom{min-height:62px}}
+@media(max-width:1180px){.sidebar{width:190px;padding-left:12px;padding-right:12px}.workspace{margin-left:190px}.brand-name{font-size:20px}.brand{padding:0 6px}.brand-sub{font-size:8px;margin-left:53px}.nav-btn{font-size:11px;padding:12px 10px}.content{padding:24px}.topbar{padding:0 24px}.lab-grid{grid-template-columns:minmax(0,1fr) 280px;gap:15px}.panel{padding:17px}.scene-wrap{height:365px}.metric{padding:12px 10px}.metric-value{font-size:25px}.metric-label{font-size:8px}.metric-foot{font-size:8px}.scene-hint{font-size:8px}.given-grid{grid-template-columns:repeat(3,1fr)}.variant-grid{grid-template-columns:repeat(5,1fr)}.toast{left:calc(50% + 70px)}}
+@media(max-width:980px){.sidebar{width:76px;padding:22px 11px}.brand{padding:0;justify-content:center}.brand-name,.brand-sub,.nav-heading,.nav-btn>span,.sidebar-bottom{display:none}.nav{margin-top:33px;gap:13px}.nav-btn{justify-content:center;padding:14px}.nav-btn .icon{width:22px;height:22px}.workspace{margin-left:76px}.topbar{height:62px}.content{padding:24px 22px}.lab-grid{grid-template-columns:minmax(0,1fr) 272px}.scene-wrap{height:350px}.metric-value{font-size:24px}.metric-unit{font-size:10px}.metric-label>.icon{display:none}.metric-foot{font-size:8px}.scene-header{padding:12px}.scene-title{gap:6px}.small-title{font-size:11px}.small-meta{display:none}.toast{left:calc(50% + 30px)}.model-facts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.sidebar{position:sticky;top:0;width:100%;height:auto;inset:auto;padding:0;display:block;border-bottom:1px solid #35425b}.brand,.sidebar-bottom{display:none}.nav{display:flex;margin:0;gap:0;justify-content:space-around;padding:4px}.nav-btn{padding:9px 4px;flex-direction:column;gap:3px;flex:1;border-radius:7px}.nav-btn .icon{width:19px;height:19px}.nav-btn>.nav-label{display:block;font-size:8px;font-weight:600}.nav-btn .count{display:none}.app{display:block}.workspace{margin:0}.topbar{height:52px;padding:0 18px}.breadcrumb{font-size:10px;gap:6px}.top-actions{gap:8px}.storage-state{font-size:9px}.avatar{display:none}.content{padding:22px 18px 32px}.page-heading{gap:12px;margin-bottom:17px}.heading-actions{padding:0}.heading-actions .pill{font-size:8px;padding:5px 7px}.heading-actions .pill .icon{width:12px;height:12px}h1{font-size:28px;letter-spacing:-.9px}.eyebrow{font-size:8px;letter-spacing:1.3px}.lead{font-size:11px}.student-card{grid-template-columns:1.5fr 1fr;gap:12px;padding:13px;margin-bottom:16px}.student-card>.student-name{grid-column:1/-1}.student-card .field{font-size:12px}.student-card .field-label{font-size:9px}.lab-grid{grid-template-columns:1fr;gap:16px}.scene-wrap{height:355px}.scene-title .small-title{font-size:12px}.small-meta{display:block;font-size:9px}.scene-header{padding:12px 15px}.scene-hint{font-size:9px}.metric{padding:14px 12px}.metric-value{font-size:28px}.metric-label{font-size:9px}.metric-foot{font-size:8px}.metric-unit{font-size:11px}.settings-panel{padding:20px}.settings-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.settings-fields .group{margin-bottom:19px}.settings-fields .group:first-child{grid-column:1/-1}.group-label{font-size:12px}.device-btn{font-size:12px;padding:12px}.group select{font-size:12px;min-height:40px}.range-number{width:58px}.range-extremes{padding-right:68px}.group-duration{grid-column:1/-1}.settings-rule{margin:3px 0 16px}.limit-box{font-size:11px}.control-note{font-size:10px}.speed-row{font-size:11px}.btn{font-size:12px;min-height:42px}.chart-card{margin-top:17px;padding:16px}.chart-wrap{height:290px}.section-head{flex-direction:column;gap:10px}.chart-legend{font-size:9px}.theory-grid{grid-template-columns:1fr}.theory-item:last-child{grid-column:auto}.variant-grid{grid-template-columns:repeat(5,1fr);gap:6px}.variant-card{padding:11px 7px}.variant-card strong{font-size:20px}.variant-card span{font-size:8px}.variant-card .done-mark{top:6px;right:5px;font-size:9px}.worksheet{padding:17px}.worksheet-heading{flex-direction:column;gap:12px}.worksheet-title{font-size:21px}.worksheet-heading .button-row{margin:0}.given-grid{grid-template-columns:repeat(2,1fr)}.given-cell:last-child{grid-column:1/-1}.notes-grid{grid-template-columns:1fr}.note-field textarea{min-height:140px}.journal-summary{gap:8px}.stat{padding:13px}.stat span{font-size:9px}.stat strong{font-size:25px}.journal-toolbar .actions{width:100%}.journal-toolbar .btn{flex:1}.doc-grid{grid-template-columns:1fr}.docs-hero{padding:20px}.steps{grid-template-columns:1fr;gap:8px}.step{display:flex;gap:12px}.step span{flex:none}.step p{padding-top:3px}.doc-card{padding:20px}.toast{left:50%;bottom:17px;width:max-content}.footer{font-size:8px}.button-row .subtle{width:100%;margin:0}.result-banner{gap:8px;flex-wrap:wrap}.result-banner .btn{margin-left:36px}.result-copy{flex-basis:70%}}
+@media(max-width:390px){.content{padding:18px 12px}.topbar{padding:0 12px}.top-actions .storage-state{font-size:8px}.scene-wrap{height:300px}.metric{padding:12px 8px}.metric-value{font-size:24px}.metric-label{font-size:8px}.metric-unit{font-size:10px}.metrics{gap:7px}.heading-actions{display:none}.settings-fields{column-gap:12px}.scene-hint{font-size:8px}.small-meta{display:none}.chart-legend{gap:8px}.variant-grid{gap:5px}.variant-card span{font-size:7px}.nav-btn>.nav-label{font-size:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.spinner{animation:none}}
+@media print{@page{size:A4;margin:13mm}body{background:white;color:#17263e;font:10pt/1.45 Arial,sans-serif}.app,.toast,noscript{display:none!important}.print-area{display:block!important}.print-heading{border-bottom:2px solid #203d61;padding-bottom:9px;margin-bottom:13px}.print-heading .kicker{font-size:8pt;color:#65738b;letter-spacing:1px}.print-heading h1{font-size:18pt;letter-spacing:-.3px;line-height:1.2;margin:5px 0}.print-heading p{font-size:9pt;margin:3px 0}.print-meta{display:flex;justify-content:space-between;gap:12px;margin:12px 0;font-size:9pt}.print-notice{font-size:8pt;background:#f6f2e8;padding:8px;border-left:3px solid #c6a540;margin:11px 0}.print-area h2{font-size:12pt;margin:13px 0 6px}.print-area h3{font-size:10pt;margin:10px 0 6px}.print-area p{font-size:9pt;margin:6px 0}.print-area table{font-size:8pt;width:100%;table-layout:fixed}.print-area th,.print-area td{font-size:8pt;padding:6px;border:1px solid #ccd4df;white-space:normal;overflow-wrap:anywhere}.print-area th{background:#edf1f6;color:#354861}.print-area td small{font-size:7pt}.print-area .given-print td{font-size:9pt}.print-graph{display:block;width:100%;height:auto;max-height:225px;object-fit:contain;margin:6px 0}.print-notes{min-height:60px;border:1px solid #d4dce7;padding:8px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:9pt}.print-notes.blank{background:repeating-linear-gradient(white,white 21px,#e9edf3 22px)}.print-block{break-inside:avoid;margin-bottom:10px}.print-footer{font-size:7.5pt;color:#6b778a;border-top:1px solid #d7dee8;padding-top:7px;margin-top:12px}.print-table{break-inside:auto}thead{display:table-header-group}tr{break-inside:avoid}.print-area .status-label{font-size:8pt}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-13h-6l1-7Z"/></symbol>
+<symbol id="i-lab" viewBox="0 0 24 24"><path d="M9 3h6M10 3v7L4 20h16l-6-10V3M8 14h8M8 18h2m4 0h2"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v15M3 4c3-1 6-1 9 1 3-2 6-2 9-1v15c-3-1-6-1-9 1-3-2-6-2-9-1V4Z"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M6 16l4-5 4 2 6-8"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H5v20h14V7l-5-5ZM14 2v6h5M8 12h8M8 16h8"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 3v7c0 5-8 10-8 10S4 17 4 12V5l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.2"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 3v7m0 4v7m8-18v11m0 4v3m8-18v3m0 4v11M1 10h6m2 4h6m2-8h6"/></symbol>
+<symbol id="i-glove" viewBox="0 0 24 24"><path d="M8 20v-3l-4-5c-1-2 1-3 2-2l2 2V5c0-2 3-2 3 0v4-6c0-2 3-2 3 0v6-5c0-2 3-2 3 0v6-3c0-2 3-2 3 0v6l-3 7v2H8v-2Z"/></symbol>
+<symbol id="i-boot" viewBox="0 0 24 24"><path d="M10 3h9v13l2 3v2H3v-4l7-3V3ZM3 18h18M10 6h9"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 13 8-13 8V4Z"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+<symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></symbol>
+<symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v5l3 1M9 2h6M12 2v3"/></symbol>
+<symbol id="i-current" viewBox="0 0 24 24"><path d="M2 12h3l3-8 5 16 3-8h6"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+<symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 17H3V9h18v8h-3M6 14h12v8H6v-8ZM17 11h1"/></symbol>
+<symbol id="i-save" viewBox="0 0 24 24"><path d="M3 3h15l3 3v15H3V3ZM7 3v6h10V3M7 21v-8h10v8"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L20 5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M9 10v7m6-7v7"/></symbol>
+</defs></svg>
+<noscript>Laboratoriya ishlashi uchun brauzer sozlamalarida JavaScript’ni yoqing va sahifani yangilang.</noscript>
+<div class="app">
+<aside class="sidebar" aria-label="Asosiy menyu">
+<div class="brand"><div class="brand-mark"><svg class="icon"><use href="#i-bolt"/></svg></div><div class="brand-name">ElektroLab</div></div><div class="brand-sub">VIRTUAL LABORATORIYA</div>
+<div class="nav-heading">O‘QUV MUHITI</div>
+<nav class="nav">
+<button class="nav-btn active" data-view="lab" aria-current="page" title="Laboratoriya"><svg class="icon"><use href="#i-lab"/></svg><span class="nav-label">Laboratoriya</span></button>
+<button class="nav-btn" data-view="theory" title="Qisqa nazariya"><svg class="icon"><use href="#i-book"/></svg><span class="nav-label">Qisqa nazariya</span></button>
+<button class="nav-btn" data-view="variants" title="10 ta variant"><svg class="icon"><use href="#i-grid"/></svg><span class="nav-label">10 ta variant</span><span class="count">10</span></button>
+<button class="nav-btn" data-view="results" title="Natijalar jurnali"><svg class="icon"><use href="#i-chart"/></svg><span class="nav-label">Natijalar jurnali</span><span class="count" id="navCount">0</span></button>
+<button class="nav-btn" data-view="docs" title="Word hujjatlar"><svg class="icon"><use href="#i-doc"/></svg><span class="nav-label">Word hujjatlar</span></button>
+</nav>
+<div class="sidebar-bottom"><div class="sidebar-note"><svg class="icon"><use href="#i-shield"/></svg><strong>Bilim uchun xavfsiz muhit</strong>Bu o‘quv simulyatsiyasi. Haqiqiy yuqori kuchlanishli sinov o‘rnini bosmaydi.</div><div class="sidebar-footer">ELEKTR TEXNIKASI · MODEL 1.0</div></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="breadcrumb"><svg class="icon" style="width:16px;color:#8496ad"><use href="#i-lab"/></svg><span>Virtual ta’lim</span><span>/</span><strong id="breadcrumb">Laboratoriya</strong></div><div class="top-actions"><span class="storage-state"><span class="dot" id="storageDot"></span><span id="storageState">Brauzerda saqlanadi</span></span><span class="avatar" title="Talaba">T</span></div></header>
+<main class="content">
+<div class="page-heading"><div><p class="eyebrow">ELEKTR XAVFSIZLIGI · INTERAKTIV TAJRIBA</p><h1>Dielektrik himoya<br>vositalarini sinash</h1><p class="lead">Qo‘lqop va etiklarning elektr mustahkamligini virtual stendda o‘rganing. Parametrlarni o‘zgartiring, jarayonni kuzating va xulosa chiqaring.</p></div><div class="heading-actions"><span class="pill yellow"><svg class="icon" style="width:14px;height:14px"><use href="#i-shield"/></svg>O‘quv modeli</span></div></div>
+<section class="student-card" aria-label="Talaba ma’lumotlari"><div class="student-name"><label class="field-label" for="studentName">TALABANING F.I.SH.</label><input class="field" id="studentName" maxlength="100" autocomplete="name" placeholder="Ism va familiyangizni kiriting"></div><div><label class="field-label" for="studentGroup">GURUH</label><input class="field" id="studentGroup" maxlength="40" placeholder="Masalan: 21–E"></div><div><label class="field-label" for="variantSelect">VARIANT RAQAMI</label><select class="field" id="variantSelect" aria-label="Variant raqami"></select></div></section>
+<section id="view-lab" class="view" aria-label="Virtual laboratoriya">
+<div class="lab-grid"><div class="lab-main">
+<div class="scene-card"><div class="scene-header"><div class="scene-title"><svg class="icon"><use href="#i-lab"/></svg><span class="small-title">3D sinov stendi</span><span class="small-meta">· obyektni bosing</span></div><span class="pill green" id="runStatus"><span class="dot"></span>Tayyor</span></div><div class="scene-wrap" id="sceneWrap"><div class="scene-mount" id="sceneMount"><div class="scene-loading"><div class="spinner"></div>3D laboratoriya yuklanmoqda…</div></div><div class="scene-tag">VIRTUAL STEND / 01</div><div class="scene-tools"><button class="icon-btn" id="resetCamera" title="Kamerani tiklash" aria-label="Kamerani tiklash"><svg class="icon"><use href="#i-reset"/></svg></button><button class="icon-btn" id="expandScene" title="3D ko‘rinishni kengaytirish" aria-label="3D ko‘rinishni kengaytirish"><svg class="icon"><use href="#i-expand"/></svg></button></div><div class="scene-hint">Sudrang — aylantirish · G‘ildirak / ikki barmoq — yaqinlashtirish</div></div><div class="scene-bottom"><svg class="icon"><use href="#i-info"/></svg><div><strong id="objectTitle">Sinov vannasi</strong><div id="objectText">3D obyektni tanlang — uning vazifasini bilib oling.</div></div></div></div>
+<div class="metrics"><div class="metric voltage"><div class="metric-label">VOLTMETR <svg class="icon"><use href="#i-bolt"/></svg></div><div class="metric-reading"><span class="metric-value" id="voltageValue">0.00</span><span class="metric-unit">kV</span></div><div class="metric-foot">O‘zgaruvchan kuchlanish · RMS</div></div><div class="metric current" id="currentMeter"><div class="metric-label">MIKROAMPERMETR <svg class="icon"><use href="#i-current"/></svg></div><div class="metric-reading"><span class="metric-value" id="currentValue">0.0</span><span class="metric-unit">µA</span></div><div class="metric-foot">Modeldagi tok · RMS</div></div><div class="metric timer"><div class="metric-label">SINOV VAQTI <svg class="icon"><use href="#i-clock"/></svg></div><div class="metric-reading"><span class="metric-value" id="timeValue">00:00</span><span class="metric-unit" id="durationHint">/ 30 s</span></div><div class="metric-foot" id="timerFoot">Virtual vaqt · tezlik 4×</div></div></div>
+<div id="resultBanner" class="result-banner" hidden role="status"><div class="result-icon"><svg class="icon"><use id="resultIcon" href="#i-check"/></svg></div><div class="result-copy"><strong id="resultTitle"></strong><p id="resultText"></p></div><button class="btn" id="saveResult"><svg class="icon"><use href="#i-save"/></svg>Natijani saqlash</button></div>
+</div><aside class="panel settings-panel" aria-label="Sinov parametrlari"><div class="panel-head"><h2>Sinov parametrlari</h2><svg class="icon"><use href="#i-sliders"/></svg></div><div class="settings-fields">
+<div class="group"><div class="group-label">Himoya vositasi<span class="unit" id="customBadge">1-variant</span></div><div class="device-switch"><button class="device-btn selected" data-device="glove" aria-pressed="true"><svg class="icon"><use href="#i-glove"/></svg>Qo‘lqop</button><button class="device-btn" data-device="boot" aria-pressed="false"><svg class="icon"><use href="#i-boot"/></svg>Etik</button></div></div>
+<div class="group"><label class="group-label" for="liquidSelect">Sinov suyuqligi</label><select class="field" id="liquidSelect"><option value="clean">Toza suv</option><option value="salt">Sho‘rlangan suv</option><option value="conductive">Shartli o‘tkazuvchan suyuqlik</option></select></div>
+<div class="group"><label class="group-label" for="temperatureRange">Suyuqlik harorati<span class="unit">°C</span></label><div class="range-row"><input id="temperatureRange" type="range" min="5" max="60" step="1" value="20" aria-label="Harorat slayderi"><input class="range-number" id="temperatureInput" type="number" min="5" max="60" step="1" value="20" aria-label="Harorat, Selsiy"></div><div class="range-extremes"><span>5 °C</span><span>60 °C</span></div></div>
+<div class="group"><label class="group-label" for="voltageRange">Sinov kuchlanishi<span class="unit">kV</span></label><div class="range-row"><input id="voltageRange" type="range" min="0.5" max="25" step="0.5" value="6" aria-label="Kuchlanish slayderi"><input class="range-number" id="voltageInput" type="number" min="0.5" max="25" step="0.5" value="6" aria-label="Kuchlanish, kilovolt"></div><div class="range-extremes"><span>0.5 kV</span><span>25 kV</span></div></div>
+<div class="group group-duration"><label class="group-label" for="durationRange">Sinov davomiyligi<span class="unit">s</span></label><div class="range-row"><input id="durationRange" type="range" min="5" max="120" step="1" value="30" aria-label="Davomiylik slayderi"><input class="range-number" id="durationInput" type="number" min="5" max="120" step="1" value="30" aria-label="Davomiylik, soniya"></div><div class="range-extremes"><span>5 s</span><span>120 s</span></div></div>
+</div><hr class="settings-rule"><div class="limit-box"><span>Shartli tok chegarasi</span><strong id="limitValue">— µA</strong></div><div class="speed-row"><span>Namoyish tezligi</span><div class="speed-switch" role="group" aria-label="Namoyish tezligi"><button class="speed-btn" data-speed="1" aria-pressed="false">1×</button><button class="speed-btn selected" data-speed="4" aria-pressed="true">4×</button><button class="speed-btn" data-speed="10" aria-pressed="false">10×</button></div></div>
+<button class="btn primary full" id="startTest"><svg class="icon"><use href="#i-play"/></svg><span id="startText">Sinovni boshlash</span></button><div class="action-row"><button class="btn" id="pauseTest" disabled><svg class="icon"><use href="#i-pause"/></svg><span id="pauseText">Pauza</span></button><button class="btn" id="resetTest"><svg class="icon"><use href="#i-reset"/></svg>Qayta boshlash</button></div><div class="run-progress"><div class="progress-track" role="progressbar" aria-label="Sinov jarayoni" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><div class="progress-bar" id="progressBar"></div></div><div class="progress-labels"><span>Tayyorlash</span><span>Kuchlanish</span><span>Kuzatish</span><span>Natija</span></div></div><p class="control-note">Barcha qiymatlar hisoblash modelidan olinadi.<br>Bu haqiqiy o‘lchov yoki himoya vositasi sertifikati emas.</p>
+</aside></div>
+<div class="panel chart-card"><div class="section-head"><div><h2>Sinovning vaqt bo‘yicha grafigi</h2><p>Har bir nuqta — hisoblangan qiymat. Ikki grafikning vaqt o‘qi bir xil.</p></div><div class="chart-legend"><span class="legend-item"><i class="legend-line"></i>Kuchlanish, kV</span><span class="legend-item"><i class="legend-line yellow"></i>Tok, µA</span><span class="legend-item"><i class="legend-line dashed"></i>Shartli chegara</span></div></div><div class="chart-wrap"><canvas id="liveChart" role="img" aria-label="Kuchlanish va tokning vaqt bo‘yicha grafigi"></canvas><div class="chart-empty" id="chartEmpty"><span>Grafikni olish uchun sinovni boshlang</span></div></div><div class="chart-readout" id="chartReadout">Grafik ustiga kursorni olib boring — qiymatlarni ko‘ring.</div></div>
+<details class="model-details"><summary>Hisoblash modeli va shartli qiymatlar haqida</summary><div class="model-content"><p id="modelExplanation"></p><div class="model-formula">Z = R<sub>s</sub> + (1/R<sub>iz</sub> + j·2πfC)<sup>−1</sup> &nbsp;·&nbsp; I = U / |Z|</div><div class="model-facts" id="modelFacts"></div><p>Ko‘rsatilgan tok tarkibida o‘tkazuvchanlik va sig‘im toki mavjud. Barcha R, C, tok chegarasi hamda teshilish chegarasi didaktik model uchun tanlangan. Davomiylik kuchlanishning ko‘tarilish bosqichini ham o‘z ichiga oladi.</p><div class="sources" id="modelSources"></div></div></details>
+</section>
+<section id="view-theory" class="view" hidden aria-label="Qisqa nazariya"><div class="section-head"><div><h2>Tajriba oldidan 5 ta tushuncha</h2><p>Qisqa nazariya — jarayonni tushunish uchun.</p></div><button class="btn small" data-goto="lab">Laboratoriyaga qaytish<svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="theory-grid" id="theoryGrid"></div><div class="button-row"><button class="btn navy" data-goto="lab">Tajribaga o‘tish<svg class="icon"><use href="#i-arrow"/></svg></button></div></section>
+<section id="view-variants" class="view" hidden aria-label="Mustaqil ish variantlari"><div class="section-head"><div><h2>10 ta mustaqil tajriba</h2><p>Variantni tanlang. Berilganlar, yozuvlar va xulosa har bir variant uchun alohida saqlanadi.</p></div></div><div class="variant-grid" id="variantGrid"></div><div class="worksheet"><div class="worksheet-heading"><div><div class="eyebrow">MUSTAQIL ISH VARAQASI</div><div class="worksheet-title" id="worksheetTitle">1-variant</div><p>F.I.Sh.: <span id="worksheetName">—</span> &nbsp;·&nbsp; Guruh: <span id="worksheetGroup">—</span></p></div><div class="button-row"><button class="btn small" id="printVariant"><svg class="icon"><use href="#i-print"/></svg>Chop etish / PDF</button><button class="btn navy small" id="runVariant">Tajribani bajarish<svg class="icon"><use href="#i-arrow"/></svg></button></div></div><div class="given-grid" id="givenGrid"></div><div class="task-box"><strong>Topshiriq.</strong> <span id="variantTask"></span></div><h3>Natijalar jadvali</h3><div class="table-wrap"><table><thead><tr><th>Himoya vositasi</th><th>Suyuqlik</th><th>Harorat</th><th>Kuchlanish</th><th>Vaqt</th><th>Tok</th><th>Natija</th></tr></thead><tbody id="variantResults"></tbody></table></div><p class="small-note">Tok — sinov davomida qayd etilgan eng katta RMS qiymat; kuchlanish — erishilgan eng katta RMS qiymat. Erta to‘xtagan sinovda amaldagi vaqt ko‘rsatiladi.</p><div class="section-head" style="margin-top:20px;margin-bottom:4px"><div><h3>Hisoblash va grafik</h3><p>Grafik oxirgi bajarilgan sinovga tegishli. Qayta sinash oldingi jurnal yozuvini o‘chirmaydi.</p></div></div><div class="chart-wrap"><canvas id="worksheetChart" role="img" aria-label="Tanlangan variantning kuchlanish va tok grafigi"></canvas></div><div class="notes-grid"><div class="note-field"><label class="field-label" for="calculationNotes">Hisoblashlar va kuzatishlar</label><textarea class="field" id="calculationNotes" placeholder="R, C, Z va I qiymatlarini yozing. Harorat yoki suyuqlik o‘zgarganda tok qanday o‘zgardi?"></textarea></div><div class="note-field"><label class="field-label" for="conclusionNotes">Xulosa</label><textarea class="field" id="conclusionNotes" placeholder="Natijani shartli tok chegarasi bilan solishtiring. Model va haqiqiy sinov o‘rtasidagi farqni izohlang."></textarea></div></div><div class="button-row"><button class="btn" id="saveNotes"><svg class="icon"><use href="#i-save"/></svg>Yozuvlarni saqlash</button><button class="btn" id="variantCsv"><svg class="icon"><use href="#i-download"/></svg>Variant CSV</button><span class="subtle" id="notesStatus">Yozuvlar shu brauzerda saqlanadi.</span></div></div></section>
+<section id="view-results" class="view" hidden aria-label="Natijalar jurnali"><div class="section-head"><div><h2>Natijalar jurnali</h2><p>Saqlangan tajribalarni taqqoslang va hisobotni yuklab oling.</p></div></div><div class="journal-summary"><div class="stat"><span>SAQLANGAN SINOVLAR</span><strong id="totalRuns">0</strong></div><div class="stat"><span>SHARTLI MUVAFFAQIYATLI</span><strong id="passRuns" style="color:var(--green)">0</strong></div><div class="stat"><span>BAJARILGAN VARIANTLAR</span><strong id="doneVariants">0<span style="font-size:14px"> / 10</span></strong></div></div><div class="panel"><div class="journal-toolbar"><h3 style="margin:0">Saqlangan natijalar</h3><div class="actions"><button class="btn small" id="allCsv"><svg class="icon"><use href="#i-download"/></svg>CSV yuklab olish</button><button class="btn small" id="printResults"><svg class="icon"><use href="#i-print"/></svg>Chop etish / PDF</button></div></div><div class="table-wrap"><table><thead><tr><th>Himoya vositasi</th><th>Suyuqlik</th><th>Harorat</th><th>Kuchlanish</th><th>Vaqt</th><th>Tok</th><th>Natija</th><th><span class="sr-only">Amal</span></th></tr></thead><tbody id="resultsBody"></tbody></table></div><p class="small-note">Ma’lumotlar faqat ushbu brauzerda saqlanadi, o‘qituvchiga avtomatik yuborilmaydi. Hisobotni topshirish uchun CSV yoki PDF faylini yuklab oling. Brauzer ma’lumotlari o‘chirilsa, saqlangan yozuvlar ham o‘chadi.</p><div class="button-row"><button class="btn small danger" id="clearResults"><svg class="icon"><use href="#i-trash"/></svg>Jurnalni tozalash</button></div></div></section>
+<section id="view-docs" class="view" hidden aria-label="Word hujjatlarni yaratish"><div class="docs-hero"><p class="eyebrow">O‘QITUVCHI VA TALABA UCHUN</p><h2 style="font-size:24px">Tayyor Word hujjatlari</h2><p style="color:var(--muted);font-size:12px;margin-top:10px">Qo‘llanma va 10 ta variantni haqiqiy .docx formatida yarating. Hujjatlarni Word’da ochish, tahrirlash va chop etish mumkin.</p><div class="doc-grid"><article class="doc-card"><div class="doc-icon"><svg class="icon"><use href="#i-doc"/></svg></div><h3>Laboratoriya_qollanmasi.docx</h3><p>Mavzu va maqsad, qisqa nazariya, virtual tajriba tartibi, natijalar jadvali hamda 5 ta nazorat savoli.</p><button class="btn" id="downloadManual" hidden><svg class="icon"><use href="#i-download"/></svg>Qo‘llanmani yuklab olish</button><span class="pill" id="manualPending">Yaratishga tayyor</span></article><article class="doc-card"><div class="doc-icon"><svg class="icon"><use href="#i-doc"/></svg></div><h3>10_ta_variant.docx</h3><p>Har biri alohida sahifada: berilgan parametrlar, topshiriq, natijalar jadvali, hisoblash, grafik va xulosa uchun joy.</p><button class="btn" id="downloadVariants" hidden><svg class="icon"><use href="#i-download"/></svg>Variantlarni yuklab olish</button><span class="pill" id="variantsPending">Yaratishga tayyor</span></article></div><button class="btn navy" id="createWord"><svg class="icon"><use href="#i-doc"/></svg><span id="createWordText">Word fayllarini yaratish</span></button><p class="doc-status" id="docStatus" role="status">Kutubxona ilk marta yuklanishi uchun internet kerak. Hech qanday API kaliti talab qilinmaydi.</p><div class="steps"><div class="step"><span>1</span><p>“Word fayllarini yaratish” tugmasini bosing.</p></div><div class="step"><span>2</span><p>Ikkala hujjat tayyor bo‘lgach, ularni alohida yuklab oling.</p></div><div class="step"><span>3</span><p>Natijangiz kiritilgan varaq uchun “10 ta variant” bo‘limidagi PDF tugmasidan foydalaning.</p></div></div><div class="help-links">3D sahna va Word yaratish uchun kutubxonalar CDN’dan yuklanadi. Kutubxona yuklanmasa, xabar chiqadi; hisoblash, grafik, CSV va chop etish funksiyalari ishlashda davom etadi.</div></div></section>
+<footer class="footer"><span>ELEKTROLAB · Dielektrik qo‘lqop va etiklarni sinash</span><span>O‘quv simulyatsiyasi · Haqiqiy sinov me’yorlari emas</span></footer>
+</main></div></div>
+<div id="toast" class="toast" role="status" hidden></div><div id="printArea" class="print-area"></div>
+<script>
+/* Deterministic teaching model. All specimen/liquid coefficients and assessment
+ * boundaries below are invented educational parameters, not PPE test standards. */
+(function () {
+  'use strict';
+  const safety = 'Bu virtual tajriba faqat o‘quv maqsadida. Barcha sonli koeffitsiyentlar, tok chegaralari va teshilish shartlari shartli model qiymatlaridir. Ular haqiqiy himoya vositasining sinfi, sinov me’yori yoki foydalanishga yaroqliligini bildirmaydi. Dastur haqiqiy yuqori kuchlanishli sinov va vakolatli laboratoriya xulosasini almashtirmaydi.';
+  const devices = {
+    glove: { label: 'Dielektrik qo‘lqop', short: 'Qo‘lqop', baseResistance: 220e6, capacitance: 22e-12, limit: 110, criticalVoltage: 15 },
+    boot: { label: 'Dielektrik etik', short: 'Etik', baseResistance: 320e6, capacitance: 34e-12, limit: 190, criticalVoltage: 23 }
+  };
+  const liquids = {
+    clean: { label: 'Toza suv', short: 'Toza suv', resistance: 18e6, surfaceFactor: 1, strengthFactor: 1 },
+    salt: { label: 'Sho‘rlangan suv', short: 'Sho‘rlangan suv', resistance: 2e6, surfaceFactor: 1.35, strengthFactor: 0.97 },
+    conductive: { label: 'Shartli o‘tkazuvchan suyuqlik', short: 'Shartli o‘tkazuvchan', resistance: 0.4e6, surfaceFactor: 1.8, strengthFactor: 0.94 }
+  };
+  const variants = [
+    { id: 1, device: 'glove', liquid: 'clean', temperature: 20, voltage: 6, duration: 30, task: 'Kuchlanishning ko‘tarilish bosqichi va barqaror qismini grafikda ajrating. Eng katta tokni o‘quv modeli chegarasi bilan taqqoslang.' },
+    { id: 2, device: 'boot', liquid: 'clean', temperature: 20, voltage: 10, duration: 40, task: 'Etikning model parametrlarini qayd eting. Kuchlanish o‘zgarmas qolganda tokning vaqt bo‘yicha qanday o‘zgarishini tushuntiring.' },
+    { id: 3, device: 'glove', liquid: 'salt', temperature: 25, voltage: 8, duration: 45, task: 'Asosiy sinovni bajaring. Keyin faqat suyuqlikni toza suvga almashtirib, ikkinchi natijani yozing va tok farqini hisoblang.' },
+    { id: 4, device: 'boot', liquid: 'salt', temperature: 30, voltage: 12, duration: 50, task: 'Tokning aktiv va sig‘imiy tashkil etuvchilari ma’nosini izohlang. Umumiy tokni oddiy arifmetik yig‘indi bilan baholash nega noto‘g‘ri ekanini tushuntiring.' },
+    { id: 5, device: 'glove', liquid: 'conductive', temperature: 35, voltage: 9, duration: 60, task: 'Eng katta tok va model chegarasi orasidagi farqni aniqlang. So‘ng faqat haroratni 20 °C ga o‘zgartirib, natijalarni solishtiring.' },
+    { id: 6, device: 'boot', liquid: 'conductive', temperature: 40, voltage: 14, duration: 70, task: 'Boshlang‘ich sinovni saqlang. So‘ng faqat kuchlanishni 10 kV ga o‘zgartirib, eng katta toklarning nisbatini toping.' },
+    { id: 7, device: 'glove', liquid: 'clean', temperature: 15, voltage: 12, duration: 55, task: 'Manba kuchlanishi bilan namuna ustidagi model kuchlanishini solishtiring. Suyuqlikning ketma-ket qarshiligi ta’sirini izohlang.' },
+    { id: 8, device: 'boot', liquid: 'salt', temperature: 45, voltage: 17, duration: 80, task: 'Tok chegarasi oshishi va elektr teshilishi modeli bir xil hodisami? Grafik va yakuniy natija asosida farqini tushuntiring.' },
+    { id: 9, device: 'glove', liquid: 'conductive', temperature: 50, voltage: 18, duration: 35, task: 'Model sinovni qaysi vaqtda to‘xtatganini qayd eting. Belgilangan davomiylik bilan amalda hisoblangan vaqtni farqlang. Teshilish sharti nimani bildiradi?' },
+    { id: 10, device: 'boot', liquid: 'conductive', temperature: 55, voltage: 24, duration: 90, task: 'Sinovni kuzating va to‘xtash sababini yozing. Keyin faqat kuchlanishni 12 kV ga tushirib, ikkala grafik hamda natijani taqqoslang.' }
+  ];
+  const modelExplanation = {
+    summary: 'O‘zgaruvchan tokning 50 Hz dagi ta’sir etuvchi (RMS) qiymatlari hisoblanadi. Namuna parallel R–C zanjiri, suyuqlik esa ketma-ket ekvivalent qarshilik sifatida tasvirlangan. Tasodifiy raqamlar qo‘llanmaydi: bir xil parametrlar bir xil natija beradi.',
+    formula: 'Z_n = 1 / (1/R + j·2πfC); Z = R_s + Z_n; I = U / |Z|; U_n = U·|Z_n| / |Z|.',
+    temperature: 'R(T,t) = R20·exp[−0.035·(T−20)] / [k_s·(1+0.002t)]; C(T) = C20·[1+0.002·(T−20)]; R_s(T) = R_s20 / [1+0.02·(T−20)].',
+    breakdown: 'U_krit(T,t) = U_krit20·k_m·[1−0.006·(T−20)]·(1−0.0008t). U_n ≥ U_krit bo‘lsa, «Elektr teshilishi modeli» qayd etiladi va sinov to‘xtaydi. Teshilishdan keyingi yoy toki modellashtirilmaydi.',
+    timing: 'Kuchlanish min(5; 0.15·davomiylik) soniyada chiziqli ko‘tariladi. Tanlangan davomiylik shu ko‘tarilish vaqtini ham o‘z ichiga oladi. Tezlik tugmasi model vaqtining ekrandagi o‘tish tezligini o‘zgartiradi; fizik parametrlar va yakuniy natija o‘zgarmaydi.',
+    current: 'Ekrandagi «sizib o‘tuvchi tok» — modeldagi umumiy AC sinov toki; unda aktiv o‘tkazuvchanlik va sig‘imiy tashkil etuvchilar bor. I = √(I_R² + I_C²). Qiymatlar RMS; grafik 50 Hz sinusoidani emas, RMS qiymatlarining vaqt bo‘yicha o‘zgarishini ko‘rsatadi.',
+    assessment: 'Teshilish sharti birinchi o‘rinda baholanadi. Sinov to‘liq yakunlanib, eng katta tok shartli chegaradan oshsa «Tok chegarasi oshdi», aks holda «Shartli ravishda muvaffaqiyatli» chiqadi. Bu haqiqiy himoya vositasiga ruxsat yoki sertifikat emas.',
+    coefficients: 'R20, C20, R_s20, k_s, k_m, harorat va vaqt koeffitsiyentlari, 50 Hz chastota hamda 110/190 µA chegaralar aynan shu o‘quv modeli uchun tanlangan. Suyuqlik nomlari aniq kimyoviy tarkib yoki o‘lchangan o‘tkazuvchanlikni anglatmaydi.'
+  };
+  window.LAB_DATA = {
+    title: 'Dielektrik qo‘lqoplar va etiklarni elektr mustahkamligiga sinash',
+    safety,
+    devices,
+    liquids,
+    variants,
+    frequency: 50,
+    theory: [
+      { title: 'Himoya vositalarining vazifasi', text: 'Dielektrik qo‘lqop qo‘lni, dielektrik etik esa oyoq orqali yuzaga kelishi mumkin bo‘lgan elektr ta’siridan himoyalash uchun mo‘ljallangan izolyatsion vositadir. Ularning haqiqiy qo‘llanish sohasi markirovka va tegishli yo‘riqnomaga bog‘liq.' },
+      { title: 'Elektr mustahkamligi', text: 'Elektr mustahkamligi — izolyatsiyaning elektr maydoni ta’siriga teshilmasdan bardosh berish xususiyati. Material, qalinlik, holat va muhit bunga ta’sir qiladi. Bu dastur ularni soddalashtirilgan shartli model bilan tasvirlaydi.' },
+      { title: 'Sizib o‘tuvchi tok', text: 'Izolyatsiya ideal emas: uning hajmi va yuzasi orqali kichik tok o‘tishi mumkin. O‘zgaruvchan kuchlanishda sig‘imiy tok ham mavjud. Ekrandagi mikroampermetr shu ikki ta’sirning modeldagi umumiy RMS qiymatini ko‘rsatadi.' },
+      { title: 'Sinov qurilmasining prinsipi', text: 'Virtual manba kuchlanishni asta oshiradi. Vanna va elektrodlar namuna bilan elektr bog‘lanishini ko‘rsatadi. Voltmetr manba kuchlanishini, mikroampermetr model tokini o‘qiydi. Bu ko‘rinish haqiqiy qurilmani yig‘ish yo‘riqnomasi emas.' },
+      { title: 'Natijani baholash', text: 'Dastur eng katta tokni shartli chegaraga solishtiradi va modeldagi teshilish shartini tekshiradi. Muvaffaqiyatli natija faqat ushbu modeldagi holatni ifodalaydi; haqiqiy vositaning yaroqliligini tasdiqlamaydi.' }
+    ],
+    questions: [
+      'Dielektrik qo‘lqop va etik qanday vazifani bajaradi?',
+      'Elektr mustahkamligi bilan elektr qarshiligi orasida qanday farq bor?',
+      'O‘zgaruvchan tok modelida aktiv va sig‘imiy toklar qanday birlashadi?',
+      'Ushbu modelda harorat va suyuqlik turi natijaga qanday ta’sir qiladi?',
+      'Nima uchun virtual sinov natijasidan haqiqiy himoya vositasining yaroqliligi haqida xulosa chiqarib bo‘lmaydi?'
+    ],
+    modelExplanation: Object.values(modelExplanation).join(' '),
+    modelDetails: modelExplanation,
+    modelEquations: [modelExplanation.formula, modelExplanation.temperature, modelExplanation.breakdown],
+    sources: [
+      { title: 'OpenStax — University Physics, 15.2: Simple AC Circuits (umumiy fizik asos)', url: 'https://openstax.org/books/university-physics-volume-2/pages/15-2-simple-ac-circuits' },
+      { title: 'OSHA 1910.137 — Electrical Protective Equipment (umumiy ma’lumot; O‘zbekiston uchun me’yor sifatida qo‘llanmaydi)', url: 'https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.137' }
+    ],
+    units: { voltage: 'kV RMS', current: 'µA RMS', temperature: '°C', duration: 's', resistance: 'Ω', capacitance: 'F', frequency: 'Hz' }
+  };
+
+  function validate(params) {
+    if (!params || !devices[params.device] || !liquids[params.liquid]) throw new Error('Himoya vositasi va suyuqlik turini to‘g‘ri tanlang.');
+    const temperature = Number(params.temperature), voltage = Number(params.voltage), duration = Number(params.duration);
+    if (!Number.isFinite(temperature) || temperature < 5 || temperature > 60) throw new Error('Harorat 5–60 °C oralig‘ida bo‘lishi kerak.');
+    if (!Number.isFinite(voltage) || voltage < 0.5 || voltage > 25) throw new Error('Kuchlanish 0.5–25 kV oralig‘ida bo‘lishi kerak.');
+    if (!Number.isFinite(duration) || duration < 5 || duration > 120) throw new Error('Davomiylik 5–120 s oralig‘ida bo‘lishi kerak.');
+    return { device: params.device, liquid: params.liquid, temperature, voltage, duration };
+  }
+  function describe(params) {
+    const p = validate(params), d = devices[p.device], l = liquids[p.liquid], deltaT = p.temperature - 20;
+    return {
+      limit: d.limit,
+      criticalVoltage: d.criticalVoltage * l.strengthFactor * (1 - 0.006 * deltaT),
+      resistance: d.baseResistance * Math.exp(-0.035 * deltaT) / l.surfaceFactor,
+      capacitance: d.capacitance * (1 + 0.002 * deltaT),
+      liquidResistance: l.resistance / (1 + 0.02 * deltaT),
+      frequency: 50,
+      rampTime: Math.min(5, 0.15 * p.duration),
+      surfaceFactor: l.surfaceFactor,
+      strengthFactor: l.strengthFactor,
+      baseResistance: d.baseResistance,
+      baseCapacitance: d.capacitance,
+      baseCriticalVoltage: d.criticalVoltage,
+      baseLiquidResistance: l.resistance,
+      units: { limit: 'µA RMS', criticalVoltage: 'kV RMS', resistance: 'Ω', capacitance: 'F', liquidResistance: 'Ω', frequency: 'Hz', rampTime: 's' },
+      educationalOnly: true
+    };
+  }
+  function sample(params, time) {
+    const p = validate(params), m = describe(p);
+    if (!Number.isFinite(Number(time))) throw new Error('Model vaqti son bilan berilishi kerak.');
+    const t = Math.max(0, Math.min(p.duration, Number(time)));
+    const voltage = p.voltage * Math.min(1, t / m.rampTime);
+    const resistance = m.resistance / (1 + 0.002 * t);
+    const conductance = 1 / resistance;
+    const susceptance = 2 * Math.PI * m.frequency * m.capacitance;
+    const den = conductance * conductance + susceptance * susceptance;
+    const znReal = conductance / den;
+    const znImag = -susceptance / den;
+    const impedance = Math.hypot(m.liquidResistance + znReal, znImag);
+    const currentA = voltage * 1000 / impedance;
+    const specimenVoltageV = currentA * Math.hypot(znReal, znImag);
+    const criticalVoltage = m.criticalVoltage * (1 - 0.0008 * t);
+    const specimenVoltage = specimenVoltageV / 1000;
+    const breakdown = specimenVoltage >= criticalVoltage;
+    return {
+      t,
+      voltage,
+      current: currentA * 1e6,
+      inPhaseCurrent: specimenVoltageV / resistance * 1e6,
+      capacitiveCurrent: specimenVoltageV * susceptance * 1e6,
+      specimenVoltage,
+      criticalVoltage,
+      resistance,
+      capacitance: m.capacitance,
+      liquidResistance: m.liquidResistance,
+      impedance,
+      limit: m.limit,
+      phase: breakdown ? 'fault' : t < m.rampTime ? 'ramp' : 'hold',
+      breakdown,
+      educationalOnly: true
+    };
+  }
+  window.DielectricModel = Object.freeze({ validate, describe, sample });
+})();
+
+</script>
+<script>
+/* Procedural Three.js laboratory. All geometry and labels are generated locally. */
+(function () {
+  'use strict';
+
+  var THREE_URLS = [
+    'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js',
+    'https://unpkg.com/three@0.160.0/build/three.min.js'
+  ];
+
+  async function loadThree() {
+    if (window.THREE && window.THREE.WebGLRenderer) return window.THREE;
+    for (var i = 0; i < THREE_URLS.length; i++) {
+      try {
+        await new Promise(function (resolve, reject) {
+          var script = document.createElement('script');
+          var timer = window.setTimeout(function () {
+            script.onload = script.onerror = null;
+            script.remove();
+            reject(new Error('Kutubxona yuklanmadi'));
+          }, 10000);
+          script.src = THREE_URLS[i];
+          script.crossOrigin = 'anonymous';
+          script.onload = function () { clearTimeout(timer); resolve(); };
+          script.onerror = function () { clearTimeout(timer); script.remove(); reject(new Error('CDN bilan aloqa yo‘q')); };
+          document.head.appendChild(script);
+        });
+        if (window.THREE && window.THREE.WebGLRenderer) return window.THREE;
+      } catch (error) { /* Try the second independent CDN. */ }
+    }
+    throw new Error('Three.js kutubxonasi yuklanmadi. Internet aloqasini tekshiring va sahifani yangilang. Hisoblash, grafik va natijalar 3D ko‘rinishsiz ham ishlaydi.');
+  }
+
+  // A readable, interactive fallback for browsers without WebGL. This is
+  // explicitly labelled as a simplified canvas view, not a Three.js render.
+  function createFallbackScene(container, callbacks, reason) {
+    var canvas = document.createElement('canvas');
+    canvas.style.cssText = 'display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline:none;';
+    canvas.tabIndex = 0;
+    canvas.setAttribute('role', 'img');
+    canvas.setAttribute('aria-label', 'Laboratoriyaning soddalashtirilgan ko‘rinishi. Aylantirish uchun torting, yaqinlashtirish uchun g‘ildirak yoki ikki barmoqdan foydalaning.');
+    container.appendChild(canvas);
+    var badge = document.createElement('div');
+    badge.style.cssText = 'position:absolute;left:12px;bottom:12px;z-index:2;max-width:calc(100% - 24px);padding:7px 10px;border:1px solid #d2dde9;border-radius:7px;background:#fffffff0;color:#405772;font:500 10px/1.45 system-ui;pointer-events:none;box-shadow:0 2px 8px #17334b08;';
+    badge.textContent = reason.indexOf('Three.js') >= 0 ? 'Three.js yuklanmadi — soddalashtirilgan ko‘rinish. Internetni tekshiring.' : 'WebGL mavjud emas — soddalashtirilgan ko‘rinish';
+    badge.setAttribute('role', 'status'); container.appendChild(badge);
+    var ctx = canvas.getContext('2d');
+    if (!ctx) { badge.textContent = 'Grafik ko‘rinish ochilmadi. Hisoblash va natijalar ishlashda davom etadi.'; return null; }
+    var W = 1, H = 1, scale = 1, yaw = 0.43, tilt = 0.52, zoom = 1;
+    var disposed = false, frame = 0, lastFrame = 0;
+    var state = { device: 'glove', liquid: 'clean', temperature: 20, voltage: 0, current: 0, progress: 0, running: false, phase: 'idle' };
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var objects = [], tick = 0;
+    function project(point) {
+      var x = point[0], y = point[1], z = point[2], rx = x * Math.cos(yaw) - z * Math.sin(yaw), rz = x * Math.sin(yaw) + z * Math.cos(yaw);
+      return { x: W * 0.5 + rx * scale, y: H * 0.755 + (-y * Math.cos(tilt) + rz * Math.sin(tilt)) * scale, depth: rz * Math.cos(tilt) + y * Math.sin(tilt) };
+    }
+    function shade(hex, factor) {
+      var n = parseInt(hex.slice(1), 16), r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+      return 'rgb(' + Math.min(255, Math.round(r * factor)) + ',' + Math.min(255, Math.round(g * factor)) + ',' + Math.min(255, Math.round(b * factor)) + ')';
+    }
+    function polygon(points, color, alpha, stroke, extra) {
+      var projected = points.map(project), depth = projected.reduce(function (sum, p) { return sum + p.depth; }, 0) / projected.length;
+      objects.push({ points: projected, color: color, alpha: alpha === undefined ? 1 : alpha, stroke: stroke || null, depth: depth + (extra || 0) });
+    }
+    function line(points, color, width, extra, dash) {
+      var projected = points.map(project), depth = projected.reduce(function (sum, p) { return sum + p.depth; }, 0) / projected.length;
+      objects.push({ points: projected, line: true, color: color, width: width || 2, depth: depth + (extra || 0), dash: dash });
+    }
+    function block(x, y, z, w, h, d, color, alpha) {
+      var l = x - w / 2, r = x + w / 2, b = y - h / 2, t = y + h / 2, back = z - d / 2, front = z + d / 2;
+      polygon([[l,b,back],[r,b,back],[r,t,back],[l,t,back]], shade(color, 0.7), alpha);
+      polygon([[l,b,back],[l,b,front],[l,t,front],[l,t,back]], shade(color, 0.88), alpha);
+      polygon([[r,b,back],[r,t,back],[r,t,front],[r,b,front]], shade(color, 0.66), alpha);
+      polygon([[l,t,back],[l,t,front],[r,t,front],[r,t,back]], shade(color, 1.13), alpha);
+      polygon([[l,b,front],[r,b,front],[r,t,front],[l,t,front]], color, alpha);
+    }
+    function cylinder(x, y, z, radius, height, color) {
+      var top = [], bottom = [], steps = 14;
+      for (var c = 0; c < steps; c++) {
+        var angle = Math.PI * 2 * c / steps;
+        top.push([x + Math.cos(angle) * radius, y + height / 2, z + Math.sin(angle) * radius]);
+        bottom.push([x + Math.cos(angle) * radius, y - height / 2, z + Math.sin(angle) * radius]);
+      }
+      for (var j = 0; j < steps; j++) polygon([top[j],top[(j+1)%steps],bottom[(j+1)%steps],bottom[j]], shade(color, 0.8 + Math.cos(j / steps * 6.28) * 0.15));
+      polygon(top, shade(color, 1.13));
+    }
+    function extrusion(shape, z, depth, color) {
+      var back = shape.map(function (p) { return [p[0], p[1], z - depth / 2]; }), front = shape.map(function (p) { return [p[0], p[1], z + depth / 2]; });
+      polygon(back, shade(color, 0.72));
+      shape.forEach(function (_, i) { var n = (i + 1) % shape.length; polygon([front[i],back[i],back[n],front[n]], shade(color, 0.74 + (i % 4) * 0.07)); });
+      polygon(front, color, 1, shade(color, 0.87));
+    }
+    function panel(x, y, z, w, h, draw) {
+      var corners = [[x-w/2,y+h/2,z],[x+w/2,y+h/2,z],[x-w/2,y-h/2,z]].map(project);
+      objects.push({ panel: true, corners: corners, depth: (corners[0].depth + corners[1].depth + corners[2].depth) / 3 + 0.025, draw: draw });
+    }
+    function surfaceText(x, y, z, w, h, text, bg, color, fontSize) {
+      panel(x, y, z, w, h, function (c) { c.fillStyle = bg; c.fillRect(0,0,600,200); c.fillStyle = color; c.font = '600 ' + (fontSize || 50) + 'px Arial,sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(text,300,105,565); });
+    }
+    function meter(x, y, z, name, value, unit, color) {
+      panel(x,y,z,1.18,0.39,function(c) {
+        c.fillStyle='#071627';c.fillRect(0,0,600,200);c.fillStyle='#809ab6';c.font='500 26px Arial,sans-serif';c.textAlign='left';c.fillText(name,26,40);
+        c.fillStyle=color;c.font='600 80px monospace';c.fillText(value,24,145,420);c.font='500 38px Arial,sans-serif';c.textAlign='right';c.fillText(unit,568,145);
+      });
+    }
+    function specimen(x, y, z, size, kind) {
+      var shape = kind === 'boot' ? [[-.32,2.0],[.31,2.0],[.28,.8],[.38,.65],[.72,.57],[.83,.46],[.81,.3],[-.35,.3],[-.39,.49],[-.28,.82]] : [[-.38,2.03],[.38,2.03],[.30,1.37],[.34,1.11],[.47,.88],[.49,.60],[.43,.51],[.35,.55],[.25,.81],[.24,.45],[.17,.35],[.09,.39],[.07,.85],[.02,.39],[-.05,.30],[-.13,.36],[-.15,.85],[-.22,.5],[-.30,.45],[-.37,.51],[-.34,1.05],[-.52,.88],[-.61,.92],[-.62,1.03],[-.5,1.25],[-.34,1.43]];
+      extrusion(shape.map(function(p){return [x+p[0]*size,y+p[1]*size];}),z,kind==='boot'?.48*size:.24*size,'#efad36');
+      if(kind==='boot') extrusion([[-.36,.3],[.81,.3],[.81,.18],[-.36,.18]].map(function(p){return [x+p[0]*size,y+p[1]*size];}),z,.51*size,'#25364b');
+      var top=[];for(var a=0;a<22;a++){var angle=a/22*Math.PI*2;top.push([x+Math.cos(angle)*(kind==='boot'?.31:.38)*size,y+2.02*size,z+Math.sin(angle)*(kind==='boot'?.24:.13)*size]);}
+      polygon(top,'#9a641f',1,'#f6c36a',.02);
+      if(kind==='glove') line([[x-.34*size,y+1.73*size,z+.14*size],[x+.34*size,y+1.73*size,z+.14*size]],'#be8629',1.4);
+    }
+    function build() {
+      objects=[];
+      // Raised laboratory island.
+      block(0,.02,0,7.7,.18,3.35,'#243c58'); block(0,.56,0,7.15,.88,2.87,'#193552'); block(0,1.05,0,7.5,.16,3.12,'#edf2f8');
+      block(0,.91,1.444,6.99,.055,.018,'#f6c23d');
+      [-2.5,-.84,.84,2.5].forEach(function(x){block(x,.53,1.451,1.48,.51,.025,'#102942');block(x,.68,1.475,.35,.045,.035,'#b8c7d7');});
+      surfaceText(0,.29,1.476,3.1,.13,'DIELEKTRIK SINOV STENDI','#193552','#b6c9dc',47);
+      // Source and its real model-value displays.
+      block(-2.36,2.01,-.08,1.57,1.75,1.34,'#203d5d'); block(-2.36,2.03,.604,1.42,1.53,.06,'#e7edf4');
+      surfaceText(-2.36,2.64,.643,1.28,.18,'YUQORI KUCHLANISH','#142c47','#e3edf8',45);
+      meter(-2.36,2.28,.648,'VOLTMETR',(Number(state.voltage)||0).toFixed(2),'kV','#ffe16b');
+      meter(-2.36,1.79,.648,'MIKROAMPERMETR',(Number(state.current)||0).toFixed(1),'µA','#6ce5ef');
+      surfaceText(-2.37,1.40,.648,1.1,.17,state.running?'●  SINOV FAOL':'●  TAYYOR','#e7edf4',state.running?'#bb7713':'#238d7b',42);
+      cylinder(-2.78,2.96,-.22,.075,.21,'#af7d55'); cylinder(-1.97,2.96,-.22,.075,.21,'#af7d55');
+      // Bath floor and water. Transparent front is drawn after the specimen.
+      block(0,1.18,.06,2.63,.12,1.9,'#233d5c'); block(0,1.29,.06,2.47,.07,1.75,'#a2b5c8');
+      var liquidColor={clean:'#66c1df',salt:'#469dbb',conductive:'#7799da'}[state.liquid]||'#66c1df';
+      polygon([[-1.23,1.33,-.80],[1.23,1.33,-.80],[1.23,2.38,-.80],[-1.23,2.38,-.80]],'#c0e3f4',.20,'#aac2d6');
+      polygon([[-1.23,1.34,-.80],[1.23,1.34,-.80],[1.23,1.34,.92],[-1.23,1.34,.92]],liquidColor,.43);
+      specimen(-.13,1.13,.06,.81,state.device);
+      polygon([[-1.23,1.96,-.80],[1.23,1.96,-.80],[1.23,1.96,.92],[-1.23,1.96,.92]],liquidColor,.30,'#a1d9ef');
+      polygon([[-1.23,1.34,.92],[1.23,1.34,.92],[1.23,1.96,.92],[-1.23,1.96,.92]],liquidColor,.28);
+      polygon([[-1.23,1.34,.92],[1.23,1.34,.92],[1.23,2.38,.92],[-1.23,2.38,.92]],'#d6f1ff',.075,'#a8c1d3');
+      polygon([[1.23,1.34,-.80],[1.23,1.34,.92],[1.23,2.38,.92],[1.23,2.38,-.80]],'#d6f1ff',.12,'#a8c1d3');
+      [-1.26,1.26].forEach(function(x){[-.82,.94].forEach(function(z){cylinder(x,1.84,z,.022,1.12,'#aebdcb');});});
+      line([[-1.26,2.41,.94],[1.26,2.41,.94],[1.26,2.41,-.82],[-1.26,2.41,-.82],[-1.26,2.41,.94]],'#8ca4bb',2.2);
+      surfaceText(0,1.18,1.02,1.5,.12,'SINOV VANNASI','#233d5c','#e4eff9',46);
+      for(var m=0;m<5;m++)line([[.95,1.5+m*.16,.944],[m%2?1.08:1.14,1.5+m*.16,.944]],'#6c8da7',1);
+      // Electrode support, internal probe and outer electrode.
+      [-1.1,1.1].forEach(function(x){cylinder(x,2.13,-.81,.03,2.0,'#94aabd');});block(0,3.13,-.81,2.26,.06,.07,'#99adbd');
+      line([[0,3.13,-.81],[0,3.13,.05]],'#91a9bb',3);
+      cylinder(-.13,2.55,.06,.029,1.05,'#ba8157');cylinder(-.13,3.08,.06,.085,.22,'#e8eff5');
+      for(var rib=0;rib<4;rib++)cylinder(-.13,3.0+rib*.065,.06,.12,.025,'#d7e2ec');
+      cylinder(.83,2.12,-.30,.031,.91,'#a0b6c8');block(.83,1.65,-.30,.24,.36,.04,'#92a9bb');
+      var cable=[[-2.78,3.07,-.22],[-2.65,3.45,-.25],[-1.6,3.58,-.35],[-.45,3.47,-.2],[-.13,3.23,.06]];
+      line(cable,'#d9605d',3.3);
+      line([[.83,2.57,-.30],[1.24,2.75,-.48],[1.44,1.23,-.96],[-1.4,1.23,-1.11],[-1.97,3.06,-.22]],'#314960',2.9);
+      if(state.running&&state.voltage>0){for(var f=0;f<4;f++){var pos=(reduced?f/4:(tick*.16+f/4)%1)*(cable.length-1),ci=Math.floor(pos),fr=pos-ci;ci=Math.min(ci,cable.length-2);var cp=cable[ci].map(function(v,k){return v+(cable[ci+1][k]-v)*fr;});cylinder(cp[0],cp[1],cp[2],.048,.07,'#ffe28a');}}
+      // Separate results monitor.
+      block(2.23,1.19,-.69,1.2,.07,.59,'#29425e'); block(2.23,1.48,-.74,.12,.55,.12,'#aab8c6');block(2.23,2.17,-.71,1.57,1.0,.12,'#233d5c');
+      panel(2.23,2.19,-.642,1.41,.80,function(c){
+        c.fillStyle='#0b2037';c.fillRect(0,0,600,200);c.fillStyle='#8ca7c3';c.font='500 17px Arial';c.textAlign='left';c.fillText('O‘QUV MODELI',25,30);
+        var phase=state.phase||'idle',color=phase==='fault'?'#f8aa81':phase==='completed'?'#69e4c0':'#ffe075';c.fillStyle=color;c.font='600 23px Arial';
+        c.fillText(({idle:'SINOVGA TAYYOR',paused:'SINOV PAUZADA',ramp:'KUCHLANISH OSHMOQDA',hold:'SINOV DAVOM ETMOQDA',discharge:'KUCHLANISH PASAYMOQDA',completed:'SINOV YAKUNLANDI',fault:'MODELDA CHEGARA'})[phase]||'SINOV HOLATI',25,73,550);
+        c.fillStyle='#dce8f5';c.font='400 22px Arial';c.fillText(state.device==='boot'?'Dielektrik etik':'Dielektrik qo‘lqop',25,112);c.fillStyle='#29455f';c.fillRect(25,139,550,9);c.fillStyle=color;c.fillRect(25,139,550*Math.max(0,Math.min(1,state.progress||0)),9);
+        c.fillStyle='#8daac2';c.font='400 18px Arial';c.fillText('Simulyatsiya natijalari',25,183);
+      });
+      specimen(2.77,1.08,.58,.52,state.device==='boot'?'glove':'boot');
+      for(var st=0;st<5;st++)block(-.52+st*.26,1.139,1.29,.17,.005,.23,st%2?'#2c435d':'#f6c548');
+      block(-2.2,1.15,1.14,.62,.022,.62,'#2c435d');block(-2.2,1.17,1.14,.52,.014,.53,'#f9fbfe');
+      for(var pl=0;pl<4;pl++)line([[-2.37,1.181,.98+pl*.09],[-2.04,1.181,.98+pl*.09]],'#a4b5c5',1);
+      if(state.phase==='fault'&&/breakdown|teshil/i.test(typeof state.result==='string'?state.result:JSON.stringify(state.result||''))){for(var sp=0;sp<6;sp++){var a=sp*6.28/6;line([[-.13+Math.cos(a)*.19,2.12+Math.sin(a)*.19,.38],[-.13+Math.cos(a)*.39,2.12+Math.sin(a)*.39,.4]],'#f4b229',2);}}
+    }
+    function render() {
+      if(disposed)return;
+      var dpr=Math.min(window.devicePixelRatio||1,2);ctx.setTransform(dpr,0,0,dpr,0,0);
+      var bg=ctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#edf3f9');bg.addColorStop(1,'#e2eaf4');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+      // Faint construction grid and a soft grounding shadow.
+      ctx.lineWidth=.65;ctx.strokeStyle='#cbd8e740';
+      for(var gi=-8;gi<=8;gi++){var a=project([gi,-.12,-7]),b=project([gi,-.12,7]),c=project([-9,-.12,gi]),d=project([9,-.12,gi]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.moveTo(c.x,c.y);ctx.lineTo(d.x,d.y);ctx.stroke();}
+      var shadow=project([0,-.12,.15]);ctx.save();ctx.translate(shadow.x,shadow.y+5);ctx.scale(1,.29);var grad=ctx.createRadialGradient(0,0,scale*.8,0,0,scale*4.5);grad.addColorStop(0,'#536d8b30');grad.addColorStop(1,'#536d8b00');ctx.fillStyle=grad;ctx.beginPath();ctx.arc(0,0,scale*4.5,0,Math.PI*2);ctx.fill();ctx.restore();
+      build();objects.sort(function(a,b){return a.depth-b.depth;});
+      objects.forEach(function(o){
+        ctx.save();
+        if(o.panel){var p=o.corners;ctx.transform((p[1].x-p[0].x)/600,(p[1].y-p[0].y)/600,(p[2].x-p[0].x)/200,(p[2].y-p[0].y)/200,p[0].x,p[0].y);o.draw(ctx);}
+        else{ctx.globalAlpha=o.alpha===undefined?1:o.alpha;ctx.beginPath();o.points.forEach(function(p,i){if(!i)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);});if(o.line){ctx.strokeStyle=o.color;ctx.lineWidth=o.width;ctx.lineCap='round';ctx.lineJoin='round';if(o.dash)ctx.setLineDash(o.dash);ctx.stroke();}else{ctx.closePath();ctx.fillStyle=o.color;ctx.fill();if(o.stroke){ctx.strokeStyle=o.stroke;ctx.lineWidth=.7;ctx.stroke();}}}
+        ctx.restore();
+      });
+    }
+    function resize(){W=Math.max(container.clientWidth,1);H=Math.max(container.clientHeight,1);var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);scale=Math.min(W/9.3,H/5.15)*zoom;render();}
+    function resetCamera(){yaw=.43;tilt=.52;zoom=1;resize();}
+    function setView(name){if(name==='top'){yaw=.05;tilt=1.0;zoom=.95;}else if(name==='front'){yaw=0;tilt=.25;zoom=1;}else if(name==='close'||name==='specimen'){yaw=.25;tilt=.50;zoom=1.32;}else{resetCamera();return;}resize();}
+    var pointers=new Map(),distance=null,travel=0;
+    function down(e){if(e.button!==undefined&&e.button!==0&&e.pointerType!=='touch')return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});travel=0;if(pointers.size===2){var a=Array.from(pointers.values());distance=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);}canvas.setPointerCapture(e.pointerId);canvas.style.cursor='grabbing';}
+    function move(e){if(!pointers.has(e.pointerId))return;var previous=pointers.get(e.pointerId),dx=e.clientX-previous.x,dy=e.clientY-previous.y;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});travel+=Math.abs(dx)+Math.abs(dy);if(pointers.size===1){yaw=Math.max(-.9,Math.min(1.1,yaw+dx*.006));tilt=Math.max(.18,Math.min(1.05,tilt+dy*.003));}else{var a=Array.from(pointers.values()),next=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(distance&&next)zoom=Math.max(.7,Math.min(1.7,zoom*next/distance));distance=next;}resize();}
+    function up(e){if(pointers.size===1&&travel<7&&e.type==='pointerup'&&callbacks.onSelect)callbacks.onSelect({title:state.device==='boot'?'Dielektrik etik':'Dielektrik qo‘lqop',text:'WebGL mavjud bo‘lmagani uchun laboratoriya soddalashtirilgan ko‘rinishda tasvirlandi. Namuna, suyuqlik va raqamli ko‘rsatkichlar tanlangan model parametrlariga mos yangilanadi.'});pointers.delete(e.pointerId);distance=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);if(!pointers.size)canvas.style.cursor='grab';}
+    function wheel(e){e.preventDefault();zoom=Math.max(.7,Math.min(1.7,zoom*Math.exp(-e.deltaY*.001)));resize();}
+    function key(e){var used=true;if(e.key==='ArrowLeft')yaw-=.08;else if(e.key==='ArrowRight')yaw+=.08;else if(e.key==='ArrowUp')tilt+=.05;else if(e.key==='ArrowDown')tilt-=.05;else if(e.key==='+'||e.key==='=')zoom*=1.07;else if(e.key==='-'||e.key==='−')zoom/=1.07;else if(e.key==='Home')resetCamera();else used=false;if(used){e.preventDefault();yaw=Math.max(-.9,Math.min(1.1,yaw));tilt=Math.max(.18,Math.min(1.05,tilt));zoom=Math.max(.7,Math.min(1.7,zoom));resize();}}
+    canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointermove',move);canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',up);canvas.addEventListener('wheel',wheel,{passive:false});canvas.addEventListener('keydown',key);
+    var observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(resize):null;if(observer)observer.observe(container);else window.addEventListener('resize',resize);
+    function animate(time){if(disposed)return;frame=requestAnimationFrame(animate);if(state.running&&!document.hidden&&time-lastFrame>65){tick=time/1000;render();lastFrame=time;}}
+    resize();frame=requestAnimationFrame(animate);
+    if(callbacks.onReady)callbacks.onReady({fallback:true});
+    return {fallback:true,update:function(next){state=Object.assign(state,next||{});render();},resetCamera:resetCamera,setView:setView,resize:resize,dispose:function(){disposed=true;cancelAnimationFrame(frame);if(observer)observer.disconnect();else window.removeEventListener('resize',resize);canvas.removeEventListener('pointerdown',down);canvas.removeEventListener('pointermove',move);canvas.removeEventListener('pointerup',up);canvas.removeEventListener('pointercancel',up);canvas.removeEventListener('wheel',wheel);canvas.removeEventListener('keydown',key);canvas.remove();badge.remove();}};
+  }
+
+  window.createDielectricScene = async function (container, callbacks) {
+    callbacks = callbacks || {};
+    var notice = document.createElement('div');
+    notice.className = 'scene-loading';
+    notice.setAttribute('role', 'status');
+    notice.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;background:#eaf0f7;color:#243b55;font:500 14px/1.7 system-ui;z-index:2;';
+    notice.textContent = '3D laboratoriya tayyorlanmoqda…';
+    container.appendChild(notice);
+
+    var T, renderer;
+    try {
+      T = await loadThree();
+      renderer = new T.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'low-power' });
+    } catch (error) {
+      notice.remove();
+      if (callbacks.onError) callbacks.onError(error.message);
+      return createFallbackScene(container, callbacks, error.message);
+    }
+
+    var scene = new T.Scene();
+    scene.background = new T.Color('#e9eff6');
+    scene.fog = new T.Fog('#e9eff6', 20, 36);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
+    renderer.outputColorSpace = T.SRGBColorSpace;
+    renderer.toneMapping = T.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.12;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = T.PCFSoftShadowMap;
+    renderer.domElement.style.cssText = 'display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline:none;';
+    renderer.domElement.setAttribute('aria-label', 'Interaktiv 3D laboratoriya. Aylantirish uchun torting; yaqinlashtirish uchun g‘ildirak yoki ikki barmoqdan foydalaning. Klaviaturada strelkalar, + va − ishlaydi.');
+    renderer.domElement.setAttribute('role', 'img');
+    renderer.domElement.tabIndex = 0;
+    container.appendChild(renderer.domElement);
+    notice.remove();
+
+    var camera = new T.PerspectiveCamera(37, 1, 0.1, 70);
+    var target = new T.Vector3(0, 1.5, 0);
+    var orbit = { theta: 0.58, phi: 0.96, radius: 12.2 };
+    var defaultOrbit = { theta: 0.58, phi: 0.96, radius: 12.2 };
+    var disposed = false, animationFrame = 0, lastDisplay = '', lastState = {};
+    var selectedDevice = 'glove', selectedLiquid = 'clean';
+    var pickables = [], resources = new Set(), labels = [];
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resource(item) { resources.add(item); return item; }
+    function mat(color, opts) { return resource(new T.MeshStandardMaterial(Object.assign({ color: color, roughness: 0.48, metalness: 0.08 }, opts || {}))); }
+    var M = {
+      navy: mat('#152d4a', { roughness: 0.34, metalness: 0.32 }),
+      deep: mat('#09172b', { roughness: 0.6 }),
+      white: mat('#f4f7fa', { roughness: 0.32 }),
+      steel: mat('#a1b0bf', { roughness: 0.28, metalness: 0.7 }),
+      black: mat('#253140', { roughness: 0.66 }),
+      yellow: mat('#ffca32', { roughness: 0.5 }),
+      orange: mat('#eea52c', { roughness: 0.72 }),
+      orangeLight: mat('#ffbb41', { roughness: 0.78, side: T.DoubleSide }),
+      orangeDark: mat('#b97919', { roughness: 0.8 }),
+      copper: mat('#bb794e', { roughness: 0.26, metalness: 0.76 }),
+      red: mat('#e34c54'),
+      green: mat('#2ed9ae', { emissive: '#18b98c', emissiveIntensity: 0.5 }),
+      glow: mat('#ffda4d', { emissive: '#ffb526', emissiveIntensity: 1.3, roughness: 0.3 }),
+      cyan: mat('#68e6ff', { emissive: '#24bfea', emissiveIntensity: 0.8 }),
+      glass: mat('#d6f3ff', { transparent: true, opacity: 0.13, side: T.DoubleSide, depthWrite: false, metalness: 0.02, roughness: 0.1 }),
+      water: mat('#41aacc', { transparent: true, opacity: 0.38, side: T.DoubleSide, depthWrite: false, metalness: 0.18, roughness: 0.2 })
+    };
+    function mesh(geo, material, parent, position) {
+      var object = new T.Mesh(resource(geo), material);
+      object.castShadow = material !== M.glass && material !== M.water;
+      object.receiveShadow = true;
+      if (position) object.position.set(position[0], position[1], position[2]);
+      (parent || scene).add(object);
+      return object;
+    }
+    function box(w, h, d, material, parent, x, y, z) { return mesh(new T.BoxGeometry(w, h, d), material, parent, [x || 0, y || 0, z || 0]); }
+    function roundedGeometry(w, h, d, radius) {
+      var r = Math.min(radius || 0.07, w / 4, h / 4, d / 3);
+      var x = -w / 2 + r, y = -h / 2 + r, iw = w - 2 * r, ih = h - 2 * r;
+      var s = new T.Shape();
+      s.moveTo(x, y); s.lineTo(x + iw, y); s.lineTo(x + iw, y + ih); s.lineTo(x, y + ih); s.closePath();
+      var geometry = new T.ExtrudeGeometry(s, { depth: Math.max(0.005, d - 2 * r), bevelEnabled: true, bevelThickness: r, bevelSize: r, bevelSegments: 3, steps: 1 });
+      geometry.translate(0, 0, -(d - 2 * r) / 2);
+      return geometry;
+    }
+    function rbox(w, h, d, material, parent, x, y, z, r) { return mesh(roundedGeometry(w, h, d, r), material, parent, [x || 0, y || 0, z || 0]); }
+    function cylinder(r1, r2, h, material, parent, x, y, z, radial) { return mesh(new T.CylinderGeometry(r1, r2, h, radial || 32), material, parent, [x || 0, y || 0, z || 0]); }
+    function sphere(r, material, parent, x, y, z, scale) {
+      var item = mesh(new T.SphereGeometry(r, 28, 20), material, parent, [x || 0, y || 0, z || 0]);
+      if (scale) item.scale.set(scale[0], scale[1], scale[2]);
+      return item;
+    }
+    function tube(points, radius, material, parent, segments) {
+      var curve = new T.CatmullRomCurve3(points.map(function (a) { return new T.Vector3(a[0], a[1], a[2]); }));
+      var object = mesh(new T.TubeGeometry(curve, segments || 40, radius || 0.025, 10, false), material, parent);
+      object.userData.path = curve;
+      return object;
+    }
+    function ring(radius, thickness, material, parent, x, y, z) {
+      var object = mesh(new T.TorusGeometry(radius, thickness, 10, 40), material, parent, [x || 0, y || 0, z || 0]);
+      object.rotation.x = Math.PI / 2;
+      return object;
+    }
+    function tag(group, title, text) {
+      group.userData.info = { title: title, text: text };
+      pickables.push(group);
+      return group;
+    }
+    function makeCanvasTexture(width, height) {
+      var canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
+      var texture = resource(new T.CanvasTexture(canvas)); texture.colorSpace = T.SRGBColorSpace;
+      return { canvas: canvas, ctx: canvas.getContext('2d'), texture: texture };
+    }
+    function label(text, width, parent, x, y, z, opt) {
+      opt = opt || {};
+      var data = makeCanvasTexture(1024, 160), ctx = data.ctx;
+      ctx.fillStyle = opt.background || '#152d4a'; ctx.fillRect(0, 0, 1024, 160);
+      ctx.fillStyle = opt.color || '#edf4fc'; ctx.font = '600 53px Arial, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(text, 512, 82, 970); data.texture.needsUpdate = true;
+      var material = resource(new T.MeshBasicMaterial({ map: data.texture, transparent: false, side: T.DoubleSide }));
+      return mesh(new T.PlaneGeometry(width, width * 160 / 1024), material, parent, [x, y, z]);
+    }
+    function placard(text, width, parent, x, y, z) {
+      var data = makeCanvasTexture(1024, 190), ctx = data.ctx;
+      ctx.fillStyle = '#fffffff0'; ctx.beginPath(); ctx.roundRect(0, 0, 1024, 190, 28); ctx.fill();
+      ctx.fillStyle = '#f2b829'; ctx.fillRect(24, 37, 12, 116);
+      ctx.fillStyle = '#1a3453'; ctx.font = '700 58px Arial, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 532, 98, 920);
+      data.texture.needsUpdate = true;
+      var material = resource(new T.SpriteMaterial({ map: data.texture, depthWrite: false, depthTest: false }));
+      var sprite = new T.Sprite(material); sprite.scale.set(width, width * 190 / 1024, 1); sprite.position.set(x, y, z); (parent || scene).add(sprite); labels.push(sprite); return sprite;
+    }
+
+    scene.add(new T.HemisphereLight('#ffffff', '#a2b7d2', 2.3));
+    var key = new T.DirectionalLight('#fff7e6', 3.5); key.position.set(-3, 10, 7); key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024); key.shadow.camera.left = -6; key.shadow.camera.right = 6; key.shadow.camera.top = 6; key.shadow.camera.bottom = -6;
+    key.shadow.camera.near = 1; key.shadow.camera.far = 24; key.shadow.normalBias = 0.035; key.shadow.bias = -0.0001; scene.add(key);
+    var fill = new T.DirectionalLight('#c1e8ff', 2); fill.position.set(5, 5, -5); scene.add(fill);
+    var floor = mesh(new T.PlaneGeometry(100, 100), mat('#e9eff6', { roughness: 1 }), scene, [0, -0.22, 0]); floor.rotation.x = -Math.PI / 2; floor.castShadow = false;
+    var grid = new T.GridHelper(35, 35, '#d1dce8', '#dce4ed'); grid.position.y = -0.211; grid.material.transparent = true; grid.material.opacity = 0.45; scene.add(grid); resource(grid.geometry); resource(grid.material);
+
+    // Laboratory island and grounded enclosure.
+    var bench = new T.Group(); scene.add(bench);
+    rbox(7.75, 0.22, 3.55, M.navy, bench, 0, -0.03, 0, 0.09);
+    rbox(7.42, 0.15, 3.25, M.white, bench, 0, 1.03, 0, 0.055);
+    rbox(7.05, 0.76, 2.95, M.navy, bench, 0, 0.55, 0, 0.065);
+    rbox(6.9, 0.05, 2.95, M.yellow, bench, 0, 0.87, 0, 0.02);
+    [-3.15, 3.15].forEach(function (x) { [-1.17, 1.17].forEach(function (z) { cylinder(0.1, 0.12, 0.3, M.steel, bench, x, 0.16, z); }); });
+    [-2.5, -0.9, 0.9, 2.5].forEach(function (x) {
+      rbox(1.48, 0.5, 0.025, M.deep, bench, x, 0.53, 1.492, 0.008);
+      rbox(0.38, 0.04, 0.055, M.steel, bench, x, 0.67, 1.526, 0.01);
+    });
+    label('DIELEKTRIK SINOV STENDI · O‘QUV MODELI', 3.25, bench, 0, 0.3, 1.516, { background: '#152d4a', color: '#d0deed' });
+
+    // High-voltage source with live digital meters.
+    var source = tag(new T.Group(), 'Yuqori kuchlanish manbai', 'Modelda tanlangan kuchlanishni hosil qiladi. Ekrandagi qiymat hisoblash modelidan olinadi; bu haqiqiy o‘lchov emas.');
+    scene.add(source); source.position.set(-2.37, 1.105, -0.03);
+    rbox(1.55, 1.7, 1.45, M.navy, source, 0, 0.88, 0, 0.085);
+    rbox(1.39, 1.48, 0.08, M.white, source, 0, 0.88, 0.746, 0.025);
+    rbox(1.34, 0.25, 0.085, M.deep, source, 0, 1.48, 0.795, 0.02);
+    label('YUQORI KUCHLANISH', 1.21, source, 0, 1.49, 0.844, { background: '#09172b', color: '#e9f2fc' });
+    var meterData = [];
+    function meter(y, name, unit, color) {
+      rbox(1.15, 0.37, 0.075, M.deep, source, 0, y, 0.81, 0.02);
+      var data = makeCanvasTexture(768, 240);
+      var plane = mesh(new T.PlaneGeometry(1.02, 0.319), resource(new T.MeshBasicMaterial({ map: data.texture })), source, [0, y, 0.852]);
+      data.name = name; data.unit = unit; data.color = color; data.plane = plane; meterData.push(data);
+    }
+    meter(1.16, 'VOLTMETR', 'kV', '#ffe26a');
+    meter(0.7, 'MIKROAMPERMETR', 'µA', '#67e8f0');
+    var knob = cylinder(0.13, 0.13, 0.09, M.black, source, -0.39, 0.28, 0.84); knob.rotation.x = Math.PI / 2;
+    box(0.025, 0.10, 0.01, M.white, source, -0.39, 0.31, 0.892);
+    var stop = cylinder(0.095, 0.1, 0.075, M.red, source, 0.35, 0.28, 0.85); stop.rotation.x = Math.PI / 2;
+    var statusLamp = sphere(0.045, M.green, source, 0.06, 0.29, 0.858);
+    for (var slit = 0; slit < 7; slit++) box(0.012, 0.48, 0.04, M.deep, source, -0.782, 0.84, -0.44 + slit * 0.145);
+    [-0.4, 0.4].forEach(function (x) { cylinder(0.085, 0.11, 0.19, M.black, source, x, 1.82, -0.2); cylinder(0.047, 0.047, 0.08, M.copper, source, x, 1.96, -0.2); });
+    label('HV', 0.2, source, -0.42, 1.83, 0.72, { background: '#152d4a', color: '#ffcf45' });
+
+    // Transparent bath, metallic frame and water.
+    var bath = tag(new T.Group(), 'Sinov vannasi', 'Suyuqlik va elektrodlar namuna atrofida elektr maydonini hosil qiluvchi muhitni modellashtiradi. Suyuqlik tanlovi model tokiga ta’sir qiladi.');
+    bath.position.set(0, 1.12, 0.05); scene.add(bath);
+    rbox(2.64, 0.13, 1.92, M.navy, bath, 0, 0.02, 0, 0.04);
+    rbox(2.5, 0.07, 1.78, M.steel, bath, 0, 0.12, 0, 0.02);
+    var glassPanels = [box(2.5, 1.13, 0.015, M.glass, bath, 0, 0.72, 0.88), box(2.5, 1.13, 0.015, M.glass, bath, 0, 0.72, -0.88), box(0.015, 1.13, 1.76, M.glass, bath, -1.25, 0.72, 0), box(0.015, 1.13, 1.76, M.glass, bath, 1.25, 0.72, 0)];
+    glassPanels.forEach(function (item) { item.renderOrder = 7; item.castShadow = false; });
+    [-1.26, 1.26].forEach(function (x) { [-0.89, 0.89].forEach(function (z) { cylinder(0.023, 0.023, 1.17, M.steel, bath, x, 0.73, z, 12); }); });
+    [-0.89, 0.89].forEach(function (z) { box(2.57, 0.042, 0.045, M.steel, bath, 0, 1.3, z); });
+    [-1.26, 1.26].forEach(function (x) { box(0.045, 0.042, 1.78, M.steel, bath, x, 1.3, 0); });
+    var water = box(2.44, 0.69, 1.7, M.water, bath, 0, 0.505, 0); water.castShadow = false; water.renderOrder = 5;
+    var waterSurface = mesh(new T.PlaneGeometry(2.44, 1.7), resource(new T.MeshStandardMaterial({ color: '#94ddf2', transparent: true, opacity: 0.22, roughness: 0.18, metalness: 0.2, side: T.DoubleSide, depthWrite: false })), bath, [0, 0.853, 0]); waterSurface.rotation.x = -Math.PI / 2; waterSurface.renderOrder = 6; waterSurface.castShadow = false;
+    label('SINOV VANNASI', 1.5, bath, 0, 0.035, 0.971, { background: '#152d4a', color: '#dceafb' });
+    for (var mark = 0; mark < 6; mark++) box(mark % 2 ? 0.09 : 0.17, 0.014, 0.012, M.steel, bath, 0.99, 0.3 + mark * 0.14, 0.898);
+    var rippleMaterial = resource(new T.MeshBasicMaterial({ color: '#c9f7ff', transparent: true, opacity: 0.34, side: T.DoubleSide, depthWrite: false }));
+    var ripples = [];
+    for (var ri = 0; ri < 3; ri++) {
+      var ripple = mesh(new T.RingGeometry(0.27, 0.278, 64), rippleMaterial, bath, [0, 0.859 + ri * 0.001, 0]); ripple.rotation.x = -Math.PI / 2; ripple.renderOrder = 8; ripple.castShadow = false; ripples.push(ripple);
+    }
+
+    // Procedural hollow rubber glove, with five articulated fingers.
+    function makeGlove() {
+      var group = new T.Group();
+      var cuffPoints = [new T.Vector2(0.335, 1.18), new T.Vector2(0.36, 1.42), new T.Vector2(0.42, 1.82), new T.Vector2(0.435, 2.02), new T.Vector2(0.405, 2.02), new T.Vector2(0.39, 1.82), new T.Vector2(0.33, 1.42), new T.Vector2(0.305, 1.18)];
+      var cuff = mesh(new T.LatheGeometry(cuffPoints, 48), M.orangeLight, group); cuff.scale.z = 0.68;
+      var cuffEdge = ring(0.421, 0.031, M.orangeDark, group, 0, 2.02, 0); cuffEdge.scale.y = 0.68;
+      sphere(1, M.orange, group, 0, 0.98, 0, [0.41, 0.48, 0.23]);
+      sphere(1, M.orangeLight, group, 0, 1.23, 0, [0.32, 0.27, 0.19]);
+      var fingers = [
+        [[-0.27, 0.88, 0], [-0.31, 0.61, 0.015], [-0.33, 0.31, 0.025], [-0.3, 0.12, 0.06]],
+        [[-0.09, 0.8, 0], [-0.09, 0.5, 0.015], [-0.08, 0.2, 0.025], [-0.055, 0.035, 0.065]],
+        [[0.11, 0.8, 0], [0.12, 0.5, 0.01], [0.15, 0.23, 0.035], [0.18, 0.08, 0.075]],
+        [[0.28, 0.86, 0], [0.33, 0.64, 0.025], [0.38, 0.42, 0.055], [0.4, 0.28, 0.11]],
+        [[-0.29, 1.13, 0.025], [-0.48, 1.0, 0.06], [-0.6, 0.8, 0.13], [-0.57, 0.67, 0.18]]
+      ];
+      fingers.forEach(function (points, index) {
+        var radius = index === 4 ? 0.115 : (index === 3 ? 0.089 : 0.101);
+        tube(points, radius, M.orange, group, 24);
+        var end = points[points.length - 1]; sphere(radius, M.orange, group, end[0], end[1], end[2]);
+      });
+      [1.52, 1.56].forEach(function (y) { var seam = ring(0.381, 0.009, M.orangeDark, group, 0, y, 0); seam.scale.y = 0.68; });
+      return group;
+    }
+
+    // Hollow boot shaft, rounded toe, durable sole and raised tread.
+    function makeBoot() {
+      var group = new T.Group();
+      var shaftPoints = [new T.Vector2(0.34, 0.32), new T.Vector2(0.34, 0.57), new T.Vector2(0.285, 0.9), new T.Vector2(0.3, 1.38), new T.Vector2(0.345, 1.97), new T.Vector2(0.315, 1.97), new T.Vector2(0.27, 1.38), new T.Vector2(0.255, 0.9), new T.Vector2(0.31, 0.57), new T.Vector2(0.31, 0.32)];
+      var shaft = mesh(new T.LatheGeometry(shaftPoints, 48), M.orangeLight, group, [0, 0, -0.18]); shaft.scale.z = 1.05;
+      var cuff = ring(0.33, 0.035, M.orangeDark, group, 0, 1.97, -0.18); cuff.scale.y = 1.05;
+      sphere(1, M.orange, group, 0, 0.34, 0.18, [0.37, 0.28, 0.67]);
+      sphere(1, M.orangeLight, group, 0, 0.3, 0.6, [0.37, 0.23, 0.37]);
+      rbox(0.77, 0.13, 1.42, M.black, group, 0, 0.14, 0.23, 0.055);
+      rbox(0.7, 0.1, 0.43, M.orangeDark, group, 0, 0.06, -0.25, 0.025);
+      for (var t = 0; t < 7; t++) rbox(0.71, 0.052, 0.07, M.deep, group, 0, 0.055, -0.25 + t * 0.18, 0.014);
+      tube([[0.22, 0.6, -0.43], [0.22, 1.1, -0.4], [0.245, 1.65, -0.42], [0.26, 1.9, -0.42]], 0.012, M.orangeDark, group, 24);
+      return group;
+    }
+
+    var specimen = tag(new T.Group(), 'Dielektrik qo‘lqop', 'Izolyatsiyalovchi himoya vositasining o‘quv modeli. Suyuqlik muhiti, harorat va kuchlanish modeldagi sizib o‘tuvchi tokka ta’sir qiladi.');
+    specimen.position.set(-0.12, 1.29, 0.03); specimen.scale.setScalar(0.79); specimen.rotation.y = -0.08; scene.add(specimen);
+    var glove = makeGlove(), boot = makeBoot(); specimen.add(glove, boot); boot.visible = false;
+    var spare = tag(new T.Group(), 'Ikkinchi himoya vositasi', 'Parametrlardan qo‘lqop yoki etikni tanlang. Sinov vannasidagi namuna avtomatik almashadi.');
+    spare.position.set(2.77, 1.13, 0.48); spare.scale.setScalar(0.52); spare.rotation.y = -0.56; scene.add(spare);
+    var spareGlove = makeGlove(), spareBoot = makeBoot(); spare.add(spareGlove, spareBoot); spareGlove.visible = false;
+    rbox(1.12, 0.035, 1.13, M.white, scene, 2.72, 1.13, 0.46, 0.012);
+    label('NAMUNA', 0.62, scene, 2.7, 1.135, 1.04, { background: '#f4f7fa', color: '#536780' });
+
+    // Electrode support. It is intentionally a schematic educational stand.
+    var electrodes = tag(new T.Group(), 'Elektrodlar', 'Elektrodlar modeldagi elektr maydonini hosil qiladi. Yaltiroq nuqtalar elektr zanjiri faolligini ifodalaydi; ular haqiqiy elektronlar tasviri emas.');
+    scene.add(electrodes);
+    [-1.1, 1.1].forEach(function (x) { cylinder(0.033, 0.033, 2.0, M.steel, electrodes, x, 2.12, -0.82, 20); cylinder(0.12, 0.14, 0.06, M.navy, electrodes, x, 1.15, -0.82); });
+    box(2.29, 0.065, 0.09, M.steel, electrodes, 0, 3.13, -0.82);
+    tube([[0, 3.13, -0.82], [0, 3.15, -0.45], [-0.12, 3.15, 0.03]], 0.033, M.steel, electrodes, 16);
+    cylinder(0.07, 0.08, 0.28, M.white, electrodes, -0.12, 3.06, 0.03);
+    for (var rib = 0; rib < 4; rib++) cylinder(0.12, 0.12, 0.028, M.white, electrodes, -0.12, 2.94 + rib * 0.075, 0.03);
+    cylinder(0.032, 0.032, 0.96, M.copper, electrodes, -0.12, 2.51, 0.03);
+    sphere(0.075, M.copper, electrodes, -0.12, 2.04, 0.03);
+    cylinder(0.04, 0.04, 1.0, M.steel, electrodes, 0.83, 2.03, -0.36);
+    box(0.26, 0.42, 0.035, M.steel, electrodes, 0.83, 1.59, -0.36);
+    var liveCable = tube([[-2.77, 3.06, -0.23], [-2.75, 3.4, -0.2], [-1.45, 3.55, -0.34], [-0.46, 3.5, -0.22], [-0.12, 3.24, 0.03]], 0.03, M.red, scene, 56);
+    var returnCable = tube([[0.83, 2.54, -0.36], [1.14, 2.75, -0.57], [1.38, 1.3, -0.87], [0.5, 1.19, -1.11], [-1.39, 1.19, -1.11], [-1.96, 2.46, -0.35], [-1.97, 3.06, -0.23]], 0.027, M.black, scene, 64);
+    var flowDots = [];
+    for (var fd = 0; fd < 5; fd++) { var dot = sphere(0.046, M.glow, scene, 0, 0, 0); dot.visible = false; flowDots.push(dot); }
+
+    // A dedicated results screen on a compact stand.
+    var monitor = tag(new T.Group(), 'Natijalar ekrani', 'Sinovning joriy holati va o‘quv modelidagi natija ko‘rsatiladi. Yakuniy natija protokol jadvaliga saqlanishi mumkin.');
+    monitor.position.set(2.25, 1.15, -0.75); monitor.rotation.y = -0.14; scene.add(monitor);
+    rbox(1.3, 0.07, 0.59, M.navy, monitor, 0, 0, 0.12, 0.025);
+    rbox(0.14, 0.52, 0.13, M.steel, monitor, 0, 0.28, -0.02, 0.03);
+    rbox(1.63, 1.0, 0.13, M.navy, monitor, 0, 1.0, 0, 0.04);
+    var monitorData = makeCanvasTexture(1000, 560);
+    mesh(new T.PlaneGeometry(1.46, 0.82), resource(new T.MeshBasicMaterial({ map: monitorData.texture })), monitor, [0, 1.0, 0.071]);
+    label('MODEL MONITORI', 0.85, monitor, 0, 0.545, 0.073, { background: '#152d4a', color: '#d4e3f2' });
+
+    // Safety color accents and small scene details.
+    for (var stripe = 0; stripe < 5; stripe++) {
+      var stripeMesh = box(0.16, 0.008, 0.28, stripe % 2 ? M.navy : M.yellow, scene, -0.52 + stripe * 0.26, 1.115, 1.26); stripeMesh.rotation.y = -0.3;
+    }
+    var pad = rbox(0.55, 0.035, 0.8, M.navy, scene, -2.0, 1.14, 1.19, 0.018); pad.rotation.y = -0.12;
+    var paper = box(0.44, 0.003, 0.65, M.white, scene, -2, 1.16, 1.19); paper.rotation.y = -0.12;
+    for (var line = 0; line < 5; line++) { var lm = box(0.31, 0.003, 0.012, M.steel, scene, -2, 1.165, 1.0 + line * 0.08); lm.rotation.y = -0.12; }
+    var pen = cylinder(0.018, 0.018, 0.57, M.yellow, scene, -1.62, 1.15, 1.22, 12); pen.rotation.x = Math.PI / 2; pen.rotation.z = 0.2;
+
+    var sparkMaterial = resource(new T.LineBasicMaterial({ color: '#ffdf75', transparent: true, opacity: 0.95 }));
+    var sparkGeometry = resource(new T.BufferGeometry());
+    sparkGeometry.setAttribute('position', new T.Float32BufferAttribute(new Float32Array(54), 3));
+    var sparks = new T.LineSegments(sparkGeometry, sparkMaterial); sparks.visible = false; sparks.frustumCulled = false; scene.add(sparks);
+    var warningLight = new T.PointLight('#ffb343', 0, 4); warningLight.position.set(0, 2.15, 0.3); scene.add(warningLight);
+
+    function drawMeter(data, value) {
+      var c = data.ctx; c.fillStyle = '#071627'; c.fillRect(0, 0, 768, 240);
+      c.fillStyle = '#8ca5c1'; c.font = '600 30px Arial,sans-serif'; c.fillText(data.name, 34, 46);
+      c.fillStyle = data.color; c.font = '600 108px monospace'; c.fillText(value, 30, 176);
+      c.font = '500 45px Arial,sans-serif'; c.textAlign = 'right'; c.fillText(data.unit, 727, 174); c.textAlign = 'left';
+      data.texture.needsUpdate = true;
+    }
+    function drawMonitor(state) {
+      var ctx = monitorData.ctx, active = !!state.running, phase = state.phase || 'idle';
+      var text = { idle: 'SINOVGA TAYYOR', paused: 'SINOV PAUZADA', ramp: 'KUCHLANISH OSHMOQDA', hold: 'SINOV DAVOM ETMOQDA', discharge: 'KUCHLANISH PASAYMOQDA', completed: 'SINOV YAKUNLANDI', fault: 'MODELDA CHEGARA' }[phase] || 'SINOV HOLATI';
+      var color = phase === 'fault' ? '#ff9c78' : (phase === 'completed' ? '#63e3c1' : '#ffe072');
+      ctx.fillStyle = '#0a1c32'; ctx.fillRect(0, 0, 1000, 560);
+      ctx.fillStyle = '#859db9'; ctx.font = '600 31px Arial,sans-serif'; ctx.fillText('VIRTUAL LABORATORIYA', 55, 68);
+      ctx.fillStyle = color; ctx.font = '700 43px Arial,sans-serif'; ctx.fillText(text, 55, 157, 900);
+      ctx.fillStyle = '#e6edf7'; ctx.font = '500 31px Arial,sans-serif'; ctx.fillText(state.device === 'boot' ? 'Dielektrik etik' : 'Dielektrik qo‘lqop', 55, 228);
+      ctx.fillStyle = '#29415c'; ctx.fillRect(55, 281, 890, 18); ctx.fillStyle = color; ctx.fillRect(55, 281, 890 * Math.min(1, Math.max(0, Number(state.progress) || 0)), 18);
+      ctx.strokeStyle = '#23425e'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(55, 427); ctx.lineTo(945, 427); ctx.stroke();
+      ctx.fillStyle = '#ffe072'; ctx.font = '500 43px monospace'; ctx.fillText('U ' + (Number(state.voltage) || 0).toFixed(2) + ' kV', 55, 383, 420);
+      ctx.fillStyle = '#68e6ff'; ctx.fillText('I ' + (Number(state.current) || 0).toFixed(1) + ' µA', 535, 383, 410);
+      ctx.fillStyle = '#90a7c1'; ctx.font = '500 28px Arial,sans-serif'; ctx.fillText('O‘QUV SIMULYATSIYASI', 55, 501);
+      monitorData.texture.needsUpdate = true;
+    }
+    function update(state) {
+      lastState = Object.assign({}, lastState, state || {});
+      if (lastState.device && lastState.device !== selectedDevice) {
+        selectedDevice = lastState.device;
+        glove.visible = selectedDevice === 'glove'; boot.visible = selectedDevice === 'boot';
+        spareGlove.visible = selectedDevice === 'boot'; spareBoot.visible = selectedDevice === 'glove';
+        specimen.userData.info.title = selectedDevice === 'boot' ? 'Dielektrik etik' : 'Dielektrik qo‘lqop';
+      }
+      if (lastState.liquid && lastState.liquid !== selectedLiquid) {
+        selectedLiquid = lastState.liquid;
+        var waterColor = { clean: '#41aacc', salt: '#338ea8', conductive: '#547cc6' }[selectedLiquid] || '#41aacc';
+        M.water.color.set(waterColor); waterSurface.material.color.set(waterColor);
+      }
+      var voltage = Number(lastState.voltage) || 0, current = Number(lastState.current) || 0;
+      var displayKey = voltage.toFixed(2) + ',' + current.toFixed(1) + ',' + Math.round((lastState.progress || 0) * 100) + ',' + lastState.phase + ',' + lastState.device + ',' + lastState.running;
+      if (displayKey !== lastDisplay) {
+        drawMeter(meterData[0], voltage.toFixed(2)); drawMeter(meterData[1], current >= 10000 ? current.toFixed(0) : current.toFixed(1)); drawMonitor(lastState); lastDisplay = displayKey;
+      }
+      statusLamp.material = lastState.phase === 'fault' ? M.red : (lastState.running ? M.glow : M.green);
+    }
+
+    function positionCamera() {
+      orbit.phi = Math.max(0.22, Math.min(1.47, orbit.phi)); orbit.radius = Math.max(6, Math.min(22, orbit.radius));
+      camera.position.set(target.x + orbit.radius * Math.sin(orbit.phi) * Math.sin(orbit.theta), target.y + orbit.radius * Math.cos(orbit.phi), target.z + orbit.radius * Math.sin(orbit.phi) * Math.cos(orbit.theta));
+      camera.lookAt(target);
+    }
+    function resetCamera() { Object.assign(orbit, defaultOrbit); target.set(0, 1.5, 0); positionCamera(); }
+    function setView(name) {
+      if (name === 'top') { orbit.theta = 0; orbit.phi = 0.23; orbit.radius = defaultOrbit.radius; target.set(0, 1.1, 0); }
+      else if (name === 'front') { orbit.theta = 0; orbit.phi = 1.25; orbit.radius = defaultOrbit.radius; target.set(0, 1.6, 0); }
+      else if (name === 'close' || name === 'specimen') { orbit.theta = 0.22; orbit.phi = 1.03; orbit.radius = 6.5; target.set(-0.05, 2.1, 0); }
+      else { resetCamera(); return; }
+      positionCamera();
+    }
+    function resize() {
+      if (disposed) return;
+      var w = Math.max(container.clientWidth, 1), h = Math.max(container.clientHeight, 1);
+      renderer.setSize(w, h, false); camera.aspect = w / h;
+      // Small portrait viewports need a wider field of view to retain the bench.
+      camera.fov = camera.aspect < 0.85 ? 48 : (camera.aspect < 1.25 ? 43 : 37);
+      camera.updateProjectionMatrix();
+      defaultOrbit.radius = camera.aspect < 0.85 ? 15.5 : (camera.aspect < 1.25 ? 14.1 : 12.2);
+      if (!lastState.interacted) orbit.radius = defaultOrbit.radius;
+      positionCamera();
+    }
+
+    var canvas = renderer.domElement, pointers = new Map(), dragDistance = 0, downPosition = null, pinchDistance = null;
+    function pointerDown(event) {
+      if (event.button !== undefined && event.button !== 0 && event.pointerType !== 'touch') return;
+      pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+      if (pointers.size === 1) { dragDistance = 0; downPosition = { x: event.clientX, y: event.clientY }; }
+      if (pointers.size === 2) { var a = Array.from(pointers.values()); pinchDistance = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); }
+      canvas.setPointerCapture(event.pointerId); canvas.style.cursor = 'grabbing';
+    }
+    function pointerMove(event) {
+      if (!pointers.has(event.pointerId)) return;
+      var old = pointers.get(event.pointerId), dx = event.clientX - old.x, dy = event.clientY - old.y;
+      pointers.set(event.pointerId, { x: event.clientX, y: event.clientY }); dragDistance += Math.abs(dx) + Math.abs(dy); lastState.interacted = true;
+      if (pointers.size === 1) { orbit.theta -= dx * 0.006; orbit.phi -= dy * 0.004; }
+      else if (pointers.size === 2) {
+        var a = Array.from(pointers.values()), distance = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y);
+        if (pinchDistance && distance > 0) orbit.radius *= pinchDistance / distance;
+        pinchDistance = distance;
+      }
+      positionCamera();
+    }
+    var raycaster = new T.Raycaster(), pointerVector = new T.Vector2();
+    function pointerUp(event) {
+      if (pointers.size === 1 && dragDistance < 7 && downPosition && event.type === 'pointerup') {
+        var bounds = canvas.getBoundingClientRect();
+        pointerVector.set((event.clientX - bounds.left) / bounds.width * 2 - 1, -((event.clientY - bounds.top) / bounds.height) * 2 + 1);
+        raycaster.setFromCamera(pointerVector, camera);
+        var hits = raycaster.intersectObjects(pickables, true);
+        for (var h = 0; h < hits.length; h++) {
+          var object = hits[h].object, visible = true, current = object;
+          while (current) { if (!current.visible) visible = false; current = current.parent; }
+          if (!visible) continue;
+          while (object && !object.userData.info) object = object.parent;
+          if (object && callbacks.onSelect) { callbacks.onSelect(object.userData.info); break; }
+        }
+      }
+      pointers.delete(event.pointerId); pinchDistance = null;
+      if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+      if (!pointers.size) { canvas.style.cursor = 'grab'; downPosition = null; }
+    }
+    function wheel(event) { event.preventDefault(); orbit.radius *= Math.exp(event.deltaY * 0.001); lastState.interacted = true; positionCamera(); }
+    function keydown(event) {
+      var recognized = true;
+      if (event.key === 'ArrowLeft') orbit.theta -= 0.09;
+      else if (event.key === 'ArrowRight') orbit.theta += 0.09;
+      else if (event.key === 'ArrowUp') orbit.phi -= 0.06;
+      else if (event.key === 'ArrowDown') orbit.phi += 0.06;
+      else if (event.key === '+' || event.key === '=') orbit.radius *= 0.91;
+      else if (event.key === '-' || event.key === '−') orbit.radius *= 1.09;
+      else if (event.key === 'Home') resetCamera();
+      else recognized = false;
+      if (recognized) { event.preventDefault(); lastState.interacted = true; positionCamera(); }
+    }
+    canvas.addEventListener('pointerdown', pointerDown); canvas.addEventListener('pointermove', pointerMove); canvas.addEventListener('pointerup', pointerUp); canvas.addEventListener('pointercancel', pointerUp); canvas.addEventListener('wheel', wheel, { passive: false }); canvas.addEventListener('keydown', keydown);
+    var contextLost = function (event) { event.preventDefault(); notice.textContent = '3D grafik aloqasi uzildi. Sahifani yangilang. Hisoblash va natijalarni saqlash ishlashda davom etadi.'; container.appendChild(notice); if (callbacks.onError) callbacks.onError('WebGL konteksti yo‘qoldi'); };
+    canvas.addEventListener('webglcontextlost', contextLost);
+    var observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(resize) : null;
+    if (observer) observer.observe(container); else window.addEventListener('resize', resize);
+    resize(); update({ device: 'glove', liquid: 'clean', voltage: 0, current: 0, progress: 0, running: false, phase: 'idle' });
+
+    function animate(time) {
+      if (disposed) return;
+      animationFrame = requestAnimationFrame(animate);
+      if (document.hidden) return;
+      var active = !!lastState.running, t = time / 1000, fault = lastState.phase === 'fault';
+      var resultText = typeof lastState.result === 'string' ? lastState.result : JSON.stringify(lastState.result || '');
+      var breakdown = fault && /breakdown|teshil/i.test(resultText);
+      flowDots.forEach(function (dot, index) {
+        dot.visible = active && Number(lastState.voltage) > 0.01;
+        if (dot.visible) {
+          var fraction = reduceMotion ? index / flowDots.length : (t * 0.19 + index / flowDots.length) % 1;
+          dot.position.copy(liveCable.userData.path.getPoint(fraction));
+        }
+      });
+      ripples.forEach(function (ripple, index) {
+        var scale = reduceMotion ? 1 + index * 0.45 : 1 + ((t * (active ? 0.3 : 0.09) + index * 0.7) % 2.1);
+        ripple.scale.set(scale, scale * 0.7, 1); ripple.material.opacity = active ? 0.27 : 0.14;
+      });
+      sparks.visible = breakdown && !reduceMotion;
+      warningLight.intensity = fault ? (reduceMotion ? 1.1 : 1.0 + Math.sin(t * 10) * 0.25) : 0;
+      if (sparks.visible) {
+        var arr = sparkGeometry.attributes.position.array;
+        for (var s = 0; s < 9; s++) {
+          var angle = s * Math.PI * 2 / 9 + Math.sin(t * 8 + s) * 0.15;
+          var extension = 0.12 + (Math.sin(t * 11 + s * 2.1) + 1) * 0.075;
+          var offset = s * 6;
+          arr[offset] = -0.12 + Math.cos(angle) * 0.2; arr[offset + 1] = 1.95 + Math.sin(angle) * 0.2; arr[offset + 2] = 0.2;
+          arr[offset + 3] = -0.12 + Math.cos(angle) * (0.2 + extension); arr[offset + 4] = 1.95 + Math.sin(angle) * (0.2 + extension); arr[offset + 5] = 0.22 + Math.sin(t * 9 + s) * 0.09;
+        }
+        sparkGeometry.attributes.position.needsUpdate = true;
+      }
+      renderer.render(scene, camera);
+    }
+    animationFrame = requestAnimationFrame(animate);
+    if (callbacks.onReady) callbacks.onReady();
+    return {
+      update: update, resetCamera: resetCamera, setView: setView, resize: resize,
+      dispose: function () {
+        disposed = true; cancelAnimationFrame(animationFrame);
+        if (observer) observer.disconnect(); else window.removeEventListener('resize', resize);
+        canvas.removeEventListener('pointerdown', pointerDown); canvas.removeEventListener('pointermove', pointerMove); canvas.removeEventListener('pointerup', pointerUp); canvas.removeEventListener('pointercancel', pointerUp); canvas.removeEventListener('wheel', wheel); canvas.removeEventListener('keydown', keydown); canvas.removeEventListener('webglcontextlost', contextLost);
+        resources.forEach(function (item) { if (item.dispose) item.dispose(); }); renderer.dispose(); canvas.remove(); notice.remove();
+      }
+    };
+  };
+})();
+
+</script>
+<script>
+(function () {
+  'use strict';
+
+  // The only external dependency is a pinned browser build of docx.
+  // The generated blobs are real ZIP-based Office Open XML documents.
+  var docxLoadPromise;
+  var LIBRARIES = [
+    'https://cdn.jsdelivr.net/npm/docx@9.6.1/dist/index.umd.cjs',
+    'https://unpkg.com/docx@9.6.1/dist/index.umd.cjs'
+  ];
+
+  function loadDocx() {
+    if (window.docx && window.docx.Document && window.docx.Packer) return Promise.resolve(window.docx);
+    if (docxLoadPromise) return docxLoadPromise;
+    docxLoadPromise = new Promise(function (resolve, reject) {
+      var attempt = 0;
+      function next() {
+        if (attempt >= LIBRARIES.length) {
+          docxLoadPromise = undefined;
+          reject(new Error('Word kutubxonasi yuklanmadi. Internet aloqasini tekshirib, «Word fayllarini yaratish» tugmasini qayta bosing.'));
+          return;
+        }
+        var script = document.createElement('script');
+        script.src = LIBRARIES[attempt++];
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        var done = false;
+        var timer = setTimeout(fail, 18000);
+        function fail() {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          script.onload = null;
+          script.onerror = null;
+          script.remove();
+          next();
+        }
+        script.onerror = fail;
+        script.onload = function () {
+          if (done) return;
+          if (!(window.docx && window.docx.Document && window.docx.Packer)) { fail(); return; }
+          done = true;
+          clearTimeout(timer);
+          resolve(window.docx);
+        };
+        document.head.appendChild(script);
+      }
+      next();
+    });
+    return docxLoadPromise;
+  }
+
+  function graphPng(duration, voltage) {
+    var canvas = document.createElement('canvas');
+    canvas.width = 1400;
+    canvas.height = 360;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('Grafik maydonini yaratib bo‘lmadi. Boshqa zamonaviy brauzerda qayta urinib ko‘ring.');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    function panel(x, width, title, yLabel, maxLabel) {
+      var l = x + 72, r = x + width - 34, t = 60, b = 290;
+      ctx.fillStyle = '#142a42';
+      ctx.textAlign = 'left';
+      ctx.font = 'bold 24px Arial';
+      ctx.fillText(title, x + 20, 28);
+      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = '#d9e1e8';
+      for (var i = 0; i <= 10; i++) {
+        var xx = l + (r - l) * i / 10;
+        ctx.beginPath(); ctx.moveTo(xx, t); ctx.lineTo(xx, b); ctx.stroke();
+      }
+      for (var j = 0; j <= 5; j++) {
+        var yy = t + (b - t) * j / 5;
+        ctx.beginPath(); ctx.moveTo(l, yy); ctx.lineTo(r, yy); ctx.stroke();
+      }
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#142a42';
+      ctx.beginPath(); ctx.moveTo(l, t - 7); ctx.lineTo(l, b); ctx.lineTo(r + 7, b); ctx.stroke();
+      ctx.fillStyle = '#142a42';
+      ctx.font = '21px Arial';
+      ctx.textAlign = 'left';
+      ctx.fillText(yLabel, l - 52, t - 12);
+      ctx.textAlign = 'right';
+      ctx.fillText('0', l - 10, b + 6);
+      if (maxLabel) ctx.fillText(maxLabel, l - 10, t + 7);
+      ctx.textAlign = 'center';
+      ctx.fillText(String(duration), r, b + 26);
+      ctx.fillText('Vaqt t, s', (l + r) / 2, 343);
+    }
+    panel(0, 690, 'Kuchlanishning vaqtga bog‘liqligi', 'U, kV', String(voltage));
+    panel(710, 690, 'Tokning vaqtga bog‘liqligi', 'I, µA', '');
+    return canvas.toDataURL('image/png');
+  }
+
+  function numeric(value) {
+    return Number(value).toLocaleString('uz-UZ', { maximumFractionDigits: 2 });
+  }
+
+  window.prepareWordFiles = async function (data) {
+    data = data || window.LAB_DATA;
+    if (!data || !Array.isArray(data.variants) || data.variants.length !== 10) {
+      throw new Error('Variantlar ma’lumoti topilmadi. Sahifani yangilab, qayta urinib ko‘ring.');
+    }
+    var D = await loadDocx();
+    var W = 10060;
+    var ink = '142A42';
+    var border = { style: D.BorderStyle.SINGLE, size: 5, color: 'D9D9D9' };
+    var allBorders = { top: border, bottom: border, left: border, right: border, insideHorizontal: border, insideVertical: border };
+
+    function run(text, opts) {
+      return new D.TextRun(Object.assign({ text: String(text == null ? '' : text), font: 'Arial', size: 22, color: '202A35' }, opts || {}));
+    }
+    function para(text, opts) {
+      opts = opts || {};
+      var base = { children: [run(text, opts.run)], spacing: { after: 110, line: 265 }, widowControl: true };
+      var copy = Object.assign({}, opts); delete copy.run;
+      return new D.Paragraph(Object.assign(base, copy));
+    }
+    function heading(text, opts) {
+      return para(text, Object.assign({ heading: D.HeadingLevel.HEADING_1, keepNext: true,
+        run: { bold: true, color: '000000', size: 26 }, spacing: { before: 180, after: 95 } }, opts || {}));
+    }
+    function title(text, opts) {
+      return para(text, Object.assign({ heading: D.HeadingLevel.TITLE, keepNext: true,
+        run: { bold: true, color: '000000', size: 36 }, spacing: { after: 150, line: 390 } }, opts || {}));
+    }
+    function note(text) {
+      return para(text, { run: { size: 18, color: '4D5968' }, spacing: { before: 65, after: 90, line: 230 } });
+    }
+    function gap(amount) {
+      return para('', { run: { size: 2 }, spacing: { before: 0, after: amount, line: 30 } });
+    }
+    function lines(count) {
+      var a = [];
+      for (var i = 0; i < count; i++) {
+        a.push(para('________________________________________________________________________________', {
+          run: { size: 20, color: 'CBD2DA' }, spacing: { before: 0, after: 90, line: 255 }
+        }));
+      }
+      return a;
+    }
+    function pageBreak() { return new D.Paragraph({ children: [new D.PageBreak()], spacing: { after: 0 } }); }
+    function cell(text, width, header, index, opts) {
+      opts = opts || {};
+      return new D.TableCell({
+        width: { size: width, type: D.WidthType.DXA },
+        verticalAlign: D.VerticalAlign.CENTER,
+        margins: { top: 100, bottom: 100, left: 100, right: 100 },
+        shading: { fill: header ? ink : (index % 2 ? 'F2F5F8' : 'FFFFFF'), type: D.ShadingType.CLEAR, color: 'auto' },
+        borders: allBorders,
+        children: [para(text, {
+          alignment: opts.left ? D.AlignmentType.LEFT : D.AlignmentType.CENTER,
+          run: { size: opts.size || 19, bold: !!header, color: header ? 'FFFFFF' : '202A35' },
+          spacing: { after: 0, line: 230 }
+        })]
+      });
+    }
+    function table(headers, rows, widths, opts) {
+      opts = opts || {};
+      var body = [new D.TableRow({ tableHeader: true, cantSplit: true, children: headers.map(function (h, i) { return cell(h, widths[i], true, 0, opts); }) })];
+      rows.forEach(function (r, ri) {
+        body.push(new D.TableRow({ cantSplit: true, children: r.map(function (text, i) { return cell(text, widths[i], false, ri, opts); }) }));
+      });
+      return new D.Table({ width: { size: W, type: D.WidthType.DXA }, columnWidths: widths,
+        layout: D.TableLayoutType.FIXED, borders: allBorders, rows: body });
+    }
+    function resultsTable(rows) {
+      return table(['Himoya vositasi', 'Suyuqlik', 'Harorat\n°C', 'Kuchlanish\nkV', 'Vaqt\ns', 'Tok\nµA', 'Natija'],
+        rows || [['', '', '', '', '', '', '']], [1800, 1720, 1050, 1440, 850, 1000, 2200]);
+    }
+    function doc(children, docTitle) {
+      return new D.Document({
+        creator: 'Virtual elektrotexnika laboratoriyasi',
+        title: docTitle,
+        subject: 'Dielektrik qo‘lqop va etiklarning elektr mustahkamligi bo‘yicha o‘quv simulyatsiyasi',
+        description: 'O‘quv topshirig‘i. Barcha hisoblangan natijalar simulyatsiyaga tegishli.',
+        language: 'uz-Latn-UZ',
+        styles: {
+          default: { document: { run: { font: 'Arial', size: 22, color: '202A35', language: { value: 'uz-Latn-UZ' } }, paragraph: { spacing: { after: 110, line: 265 } } } },
+          paragraphStyles: [
+            { id: 'Title', name: 'Title', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { color: '000000', bold: true, size: 36 }, paragraph: { spacing: { after: 160 } } },
+            { id: 'Heading1', name: 'Heading 1', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { color: '000000', bold: true, size: 26 }, paragraph: { keepNext: true, spacing: { before: 180, after: 95 } } }
+          ]
+        },
+        sections: [{ properties: { page: { size: { width: 11906, height: 16838 }, margin: { top: 850, bottom: 850, left: 923, right: 923, header: 400, footer: 400 } } }, children: children }]
+      });
+    }
+
+    var disclaimer = 'Bu virtual tajriba faqat o‘quv maqsadida yaratilgan. Qiymatlar haqiqiy laboratoriya o‘lchovi va elektr xavfsizligi me’yori emas. Natija himoya vositasini real ishga yaroqli deb tasdiqlamaydi; haqiqiy yuqori kuchlanishli sinovni almashtirmaydi.';
+    var theory = Array.isArray(data.theory) ? data.theory : [];
+    var manual = [];
+
+    // Page 1: context and the five requested short theory topics.
+    manual.push(title('Dielektrik qo‘lqop va etiklarni elektr mustahkamligiga sinash'));
+    manual.push(para('Virtual laboratoriya qo‘llanmasi', { run: { size: 24, color: '495B70' }, spacing: { after: 170 } }));
+    manual.push(para('Ushbu ishda talaba himoya vositasi, suyuqlik, harorat, kuchlanish va vaqt o‘zgarishi simulyatsiyadagi sizib o‘tuvchi tokka qanday ta’sir qilishini o‘rganadi. Maqsad — grafikni o‘qish, parametrlarni taqqoslash va dalillarga tayangan xulosa yozish.'));
+    manual.push(note(disclaimer));
+    manual.push(heading('Ishning maqsadi'));
+    manual.push(para('Dielektrik himoya vositalarining vazifasini tushuntirish; elektr mustahkamligi va sizib o‘tuvchi tok tushunchalarini farqlash; modeldagi sinov natijalarini jadval va grafik orqali baholash.'));
+    manual.push(heading('Qisqa nazariya'));
+    theory.slice(0, 5).forEach(function (item, i) {
+      manual.push(new D.Paragraph({ children: [run((i + 1) + '. ' + item.title + '. ', { bold: true }), run(item.text)], spacing: { after: 150, line: 265 }, widowControl: true }));
+    });
+    manual.push(heading('Virtual laboratoriya tarkibi'));
+    manual.push(para('3D sahnada dielektrik qo‘lqop yoki etik, suyuqlik vannasi, elektrodlar, yuqori kuchlanish manbai, raqamli voltmetr, mikroampermetr va natija ekrani ko‘rsatiladi. Sichqoncha yoki sensorli ekran yordamida sahnani aylantirish va yaqinlashtirish mumkin.'));
+    manual.push(para('Hisoblashlar takrorlanuvchi o‘quv modeli bo‘yicha bajariladi. Bir xil parametrlar bir xil natijani beradi. Model chegaralari real vositalarning sinfini yoki ruxsat etilgan ish kuchlanishini belgilamaydi.', { run: { size: 20 }, spacing: { after: 80, line: 250 } }));
+
+    // Page 2: actionable virtual steps and interpretation.
+    manual.push(pageBreak());
+    manual.push(title('Virtual tajribani bajarish tartibi', { run: { bold: true, color: '000000', size: 32 } }));
+    var steps = [
+      'F.I.Sh. va guruhingizni kiriting. 1–10 oralig‘ida o‘zingizga berilgan variantni tanlang va uning parametrlarini o‘qing.',
+      'Himoya vositasi, suyuqlik, harorat, sinov kuchlanishi va davomiylikni tekshiring. Variantni taqqoslash uchun parametrlarni o‘zgartirish mumkin; kiritilgan qiymatlarni qayd eting.',
+      '«Sinovni boshlash» tugmasini bosing. Kuchlanishning asta ko‘tarilishini, taymer va tok ko‘rsatkichini kuzating. Grafikda vaqt, kuchlanish va tok o‘qlariga e’tibor bering.',
+      '«Pauza» yordamida tajribani vaqtincha to‘xtating. Davom ettirganda taymer va model oldingi nuqtadan davom etadi. «Qayta boshlash» joriy sinovni boshlang‘ich holatga qaytaradi.',
+      'Sinov yakunida natijani o‘qing. Jadvalga erishilgan eng katta RMS kuchlanish, amalda o‘tgan model vaqti va eng katta RMS tokni yozing. Modelda teshilish yuz bersa sinov muddatidan oldin to‘xtashi mumkin.',
+      'Natijani saqlang. Hisoblash maydonida ikki holatni taqqoslang, grafikdagi o‘zgarishni izohlang va xulosa yozing. Kerak bo‘lsa CSV yoki chop etish orqali nusxa oling.'
+    ];
+    steps.forEach(function (s, i) { manual.push(para((i + 1) + '. ' + s, { spacing: { after: 125, line: 265 } })); });
+    manual.push(heading('Natijalar jadvali'));
+    manual.push(resultsTable([['', '', '', '', '', '', ''], ['', '', '', '', '', '', ''], ['', '', '', '', '', '', '']]));
+    manual.push(note('Kuchlanish va tok — erishilgan eng katta RMS qiymatlar; vaqt — sinovda o‘tgan model vaqti. Berilgan kuchlanishni hisoblash maydonida alohida yozing. «Tezlik» faqat ekrandagi jarayon tezligini o‘zgartiradi.'));
+    manual.push(heading('Natijani baholash'));
+    manual.push(para('«Shartli ravishda muvaffaqiyatli» — sinov belgilangan vaqtgacha yakunlandi va tok o‘quv chegarasidan oshmadi. «Tok chegarasi oshdi» — model toki ko‘rsatilgan o‘quv chegarasidan katta bo‘ldi. «Elektr teshilishi modeli» — modeldagi mustahkamlik chegarasi buzildi va sinov to‘xtadi.'));
+    manual.push(para('Natijani vositaning haqiqiy xavfsizligi haqida hukm sifatida ishlatmang. Taqqoslashda bir vaqtning o‘zida faqat bitta parametrni o‘zgartiring va farqni model shartlari doirasida izohlang.'));
+
+    // Page 3: a reusable worksheet and the five control questions.
+    manual.push(pageBreak());
+    manual.push(title('Hisoblash va xulosa varag‘i', { run: { bold: true, color: '000000', size: 32 } }));
+    manual.push(para('F.I.Sh. __________________________________   Guruh __________   Variant ______', { spacing: { after: 180 } }));
+    manual.push(heading('Hisoblash va taqqoslash'));
+    manual.push(para('Ikki sinovni solishtiring: qaysi parametr o‘zgardi, tok qanchaga o‘zgardi va natija toifasi almashdimi? Tok farqini µA da, nisbiy o‘zgarishni foizda yozing. Boshlang‘ich tok nol bo‘lsa, nisbiy foizni hisoblamang.', { run: { size: 20 }, spacing: { after: 85, line: 250 } }));
+    manual.push.apply(manual, lines(2));
+    manual.push(heading('Grafik uchun joy'));
+    manual.push(new D.Paragraph({ children: [new D.ImageRun({ type: 'png', data: graphPng(60, 10), transformation: { width: 650, height: 167 }, altText: { title: 'Bo‘sh grafiklar', description: 'Kuchlanish va tokning vaqtga bog‘liqligini chizish uchun ikkita koordinata maydoni.', name: 'Grafik maydoni' } })], spacing: { after: 75 } }));
+    manual.push(note('Bu bo‘sh shakldagi 10 kV va 60 s faqat o‘q shkalasi misoli. O‘z sinovingizga mos shkalani yozing; tok o‘qini µA da belgilang.'));
+    manual.push(heading('Xulosa'));
+    manual.push.apply(manual, lines(2));
+    manual.push(heading('Nazorat savollari'));
+    (data.questions || []).slice(0, 5).forEach(function (q, i) {
+      manual.push(para((i + 1) + '. ' + q, { run: { size: 20 }, spacing: { after: 75, line: 245 } }));
+    });
+    if (Array.isArray(data.sources) && data.sources.length) {
+      manual.push(heading('Qo‘shimcha o‘qish', { run: { bold: true, color: '000000', size: 22 }, spacing: { before: 110, after: 65 } }));
+      data.sources.slice(0, 2).forEach(function (s) {
+        manual.push(para(s.title + ' — ' + s.url, { run: { size: 16, color: '4D5968' }, spacing: { after: 55, line: 200 } }));
+      });
+    }
+
+    var worksheets = [];
+    data.variants.forEach(function (v, index) {
+      if (index) worksheets.push(pageBreak());
+      var dLabel = data.devices[v.device].label;
+      var lLabel = data.liquids[v.liquid].label;
+      worksheets.push(title(v.id + ' variant', { run: { bold: true, color: '000000', size: 34 }, spacing: { after: 90, line: 360 } }));
+      worksheets.push(para('Dielektrik himoya vositalarini sinash bo‘yicha mustaqil topshiriq', { run: { size: 22, color: '495B70' }, spacing: { after: 140 } }));
+      worksheets.push(para('F.I.Sh. __________________________________________   Guruh __________', { spacing: { after: 170 } }));
+      worksheets.push(heading('Berilgan parametrlar', { spacing: { before: 60, after: 90 } }));
+      worksheets.push(table(['Himoya vositasi', 'Suyuqlik', 'Harorat', 'Kuchlanish', 'Davomiylik'],
+        [[dLabel, lLabel, numeric(v.temperature) + ' °C', numeric(v.voltage) + ' kV', numeric(v.duration) + ' s']],
+        [2450, 2650, 1540, 1760, 1660]));
+      worksheets.push(heading('Tajriba topshirig‘i'));
+      worksheets.push(para(v.task + ' Grafikdagi o‘zgarishni kuzating, natijani saqlang va uni o‘quv modeli chegaralari asosida izohlang.', { run: { size: 21 }, spacing: { after: 100, line: 250 } }));
+      worksheets.push(heading('Natijalar jadvali'));
+      worksheets.push(resultsTable([['', '', '', '', '', '', ''], ['', '', '', '', '', '', '']]));
+      worksheets.push(note('U va I — erishilgan eng katta RMS qiymatlar; vaqt — amalda o‘tgan model vaqti. Natijalar faqat simulyatsiyaga tegishli.'));
+      worksheets.push(heading('Hisoblash va tahlil'));
+      worksheets.push(para('Tanlangan parametr, kuzatilgan tok va model chegarasini taqqoslang.', { run: { size: 20 }, spacing: { after: 50, line: 240 } }));
+      worksheets.push.apply(worksheets, lines(2));
+      worksheets.push(heading('Grafik uchun joy', { spacing: { before: 100, after: 70 } }));
+      worksheets.push(new D.Paragraph({ children: [new D.ImageRun({ type: 'png', data: graphPng(v.duration, v.voltage), transformation: { width: 650, height: 167 }, altText: { title: v.id + ' variant grafik maydoni', description: 'Kuchlanish va tokning vaqtga bog‘liqligi uchun bo‘sh koordinata tekisliklari.', name: 'Variant grafigi' } })], spacing: { after: 40 } }));
+      worksheets.push(note('I o‘qining shkalasini µA da o‘zingiz belgilang. Teshilish modeli yuz bersa, grafikni sinov to‘xtagan vaqtda yakunlang.'));
+      worksheets.push(heading('Xulosa', { spacing: { before: 100, after: 70 } }));
+      worksheets.push.apply(worksheets, lines(2));
+      worksheets.push(note('O‘quv simulyatsiyasi. Bu topshiriq haqiqiy yuqori kuchlanishli sinovni va himoya vositasining xavfsizligi haqidagi xulosani almashtirmaydi.'));
+    });
+
+    var blobs = await Promise.all([
+      D.Packer.toBlob(doc(manual, 'Dielektrik qo‘lqop va etiklarni sinash uchun laboratoriya qo‘llanmasi')),
+      D.Packer.toBlob(doc(worksheets, 'Dielektrik himoya vositalarini sinash uchun 10 ta variant'))
+    ]);
+    return {
+      manual: { blob: blobs[0], name: 'Laboratoriya_qollanmasi.docx' },
+      variants: { blob: blobs[1], name: '10_ta_variant.docx' }
+    };
+  };
+}());
+
+</script>
+<script>
+(function () {
+'use strict';
+const D = window.LAB_DATA, M = window.DielectricModel;
+const $ = id => document.getElementById(id);
+const STORE = 'elektrolab-dielectric-v1';
+const labels = {pass:'Shartli ravishda muvaffaqiyatli',over:'Tok chegarasi oshdi',breakdown:'Elektr teshilishi modeli'};
+const names = {lab:'Laboratoriya',theory:'Qisqa nazariya',variants:'10 ta variant',results:'Natijalar jurnali',docs:'Word hujjatlar'};
+const escape = value => String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const n = (value, digits=1) => Number.isFinite(Number(value)) ? Number(value).toFixed(digits) : '—';
+const copyParams = v => M.validate({device:v.device,liquid:v.liquid,temperature:v.temperature,voltage:v.voltage,duration:v.duration});
+let storageOK = true, saveTimer, toastTimer, scene = null, activeView = 'lab', speed = 4, lastStamp = 0, accumulator = 0, lastDraw = 0, hoverT = null;
+let state = {profile:{name:'',group:''},activeVariant:1,settings:null,records:[],notes:{},lastByVariant:{},pending:null};
+let run = {status:'idle',elapsed:0,samples:[],params:null,peakCurrent:0,peakVoltage:0,result:null,snapshot:null};
+function validRecord(r) {
+  try { return !!r && typeof r.id === 'string' && Number.isInteger(r.variant) && r.variant>=1 && r.variant<=10 && !!labels[r.result] && !!M.validate(r.params) && Number.isFinite(r.peakCurrent) && Number.isFinite(r.peakVoltage) && Number.isFinite(r.elapsed) && Array.isArray(r.trace); } catch(e) { return false; }
+}
+try {
+  const stored = JSON.parse(localStorage.getItem(STORE) || 'null');
+  if (stored && typeof stored === 'object') {
+    state.profile = {name:String(stored.profile && stored.profile.name || '').slice(0,100),group:String(stored.profile && stored.profile.group || '').slice(0,40)};
+    state.activeVariant = Number.isInteger(stored.activeVariant) && stored.activeVariant>=1 && stored.activeVariant<=10 ? stored.activeVariant : 1;
+    state.records = Array.isArray(stored.records) ? stored.records.filter(validRecord).slice(-100) : [];
+    for(let i=1;i<=10;i++) {
+      const note = stored.notes && stored.notes[i];
+      if(note) state.notes[i] = {calculation:String(note.calculation||'').slice(0,16000),conclusion:String(note.conclusion||'').slice(0,16000)};
+      const record = stored.lastByVariant && stored.lastByVariant[i];
+      if(validRecord(record)) state.lastByVariant[i] = record;
+    }
+    state.pending = validRecord(stored.pending) ? stored.pending : null;
+    try { state.settings = M.validate(stored.settings); } catch(e) { state.settings = null; }
+  }
+} catch(e) { storageOK = false; }
+state.settings = state.settings || copyParams(D.variants[state.activeVariant-1]);
+function toast(message) { $('toast').textContent=message; $('toast').hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(()=>{$('toast').hidden=true;},4500); }
+function markStorage(ok) {
+  $('storageState').textContent = ok ? 'Brauzerda saqlanadi' : 'Saqlash cheklangan';
+  $('storageDot').style.background = ok ? '#279b7d' : '#c48425';
+  $('storageState').title = ok ? 'Natijalar ushbu qurilma va brauzerda saqlanadi.' : 'Brauzer saqlashga ruxsat bermadi yoki joy yetmadi. CSV/PDF yuklab oling.';
+}
+function persist(announce=false) {
+  clearTimeout(saveTimer);
+  try { localStorage.setItem(STORE,JSON.stringify(state)); storageOK=true; markStorage(true); if(announce) toast('Ma’lumotlar ushbu brauzerda saqlandi.'); return true; }
+  catch(e) { storageOK=false; markStorage(false); if(announce) toast('Brauzerda saqlab bo‘lmadi. Natijani CSV yoki PDF shaklida yuklab oling.'); return false; }
+}
+function scheduleSave() { clearTimeout(saveTimer); saveTimer=setTimeout(()=>persist(),350); }
+function getNote(id=state.activeVariant) { if(!state.notes[id]) state.notes[id]={calculation:'',conclusion:''}; return state.notes[id]; }
+function lastRecord(id=state.activeVariant) { return state.lastByVariant[id] || state.records.filter(r=>r.variant===id).slice(-1)[0] || null; }
+function currentRecords() { return state.records.filter(r=>r.variant===state.activeVariant); }
+function compactTrace(samples) {
+  if(!samples.length)return [];
+  const stride=Math.max(1,Math.ceil(samples.length/240));
+  const points=samples.filter((s,i)=>i%stride===0 || i===samples.length-1);
+  return points.map(s=>[Number(s.t.toFixed(3)),Number(s.voltage.toFixed(5)),Number(s.current.toFixed(5))]);
+}
+function expandTrace(trace) { return (trace||[]).filter(a=>Array.isArray(a)&&a.length>=3&&a.every(Number.isFinite)).map(a=>({t:a[0],voltage:a[1],current:a[2]})); }
+function timeText(t) { return String(Math.floor(t/60)).padStart(2,'0')+':'+String(Math.floor(t%60)).padStart(2,'0'); }
+function syncControls() {
+  const p=state.settings;
+  document.querySelectorAll('[data-device]').forEach(b=>{ const on=b.dataset.device===p.device;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',String(on)); });
+  $('liquidSelect').value=p.liquid;
+  ['temperature','voltage','duration'].forEach(key=>{ $(key+'Range').value=p[key];$(key+'Input').value=p[key]; });
+  $('variantSelect').value=state.activeVariant;
+  $('durationHint').textContent='/ '+p.duration+' s';
+  const v=D.variants[state.activeVariant-1], custom=['device','liquid','temperature','voltage','duration'].some(k=>v[k]!==p[k]);
+  $('customBadge').textContent=custom?'Moslashtirilgan':state.activeVariant+'-variant';
+  const desc=M.describe(p);
+  $('limitValue').textContent=n(desc.limit,0)+' µA';
+  $('modelFacts').innerHTML='<div><small>Riz · boshlang‘ich</small><strong>'+n(desc.resistance/1e6,2)+' MΩ</strong></div><div><small>C · model sig‘imi</small><strong>'+n(desc.capacitance*1e12,2)+' pF</strong></div><div><small>Rs · suyuqlik</small><strong>'+n(desc.liquidResistance/1e6,2)+' MΩ</strong></div><div><small>Utesh · namuna, t = 0</small><strong>'+n(desc.criticalVoltage,2)+' kV</strong></div>';
+  updateControls();updateMeters();drawLive();updateScene();
+}
+function updateControls() {
+  const busy=run.status==='running'||run.status==='paused';
+  document.querySelectorAll('[data-device],#liquidSelect,#temperatureRange,#temperatureInput,#voltageRange,#voltageInput,#durationRange,#durationInput,#variantSelect,#studentName,#studentGroup').forEach(e=>e.disabled=busy);
+  $('startTest').disabled=busy;
+  $('startText').textContent=run.status==='completed'?'Yangi sinovni boshlash':'Sinovni boshlash';
+  $('pauseTest').disabled=!busy;
+  $('pauseText').textContent=run.status==='paused'?'Davom ettirish':'Pauza';
+  $('pauseTest').querySelector('use').setAttribute('href',run.status==='paused'?'#i-play':'#i-pause');
+  $('runStatus').className='pill '+(run.status==='running'?'blue':run.status==='paused'?'yellow':run.status==='completed'?(run.result==='pass'?'green':run.result==='breakdown'?'red':'yellow'):'green');
+  const phase=run.samples.length?run.samples[run.samples.length-1].phase:'idle';
+  $('runStatus').innerHTML='<span class="dot" style="background:currentColor"></span>'+({idle:'Tayyor',running:phase==='ramp'?'Kuchlanish oshmoqda':'Sinov davom etmoqda',paused:'Pauzada',completed:'Sinov yakunlandi'}[run.status]);
+  const saved=run.snapshot&&state.records.some(r=>r.id===run.snapshot.id);
+  $('saveResult').disabled=!!saved;
+  $('saveResult').innerHTML='<svg class="icon"><use href="'+(saved?'#i-check':'#i-save')+'"/></svg>'+(saved?'Saqlandi':'Natijani saqlash');
+}
+function updateMeters() {
+  const s=run.samples[run.samples.length-1], live=run.status==='running'||run.status==='paused';
+  const u=run.status==='completed'?run.peakVoltage:s?s.voltage:0;
+  const i=run.status==='completed'?run.peakCurrent:s?s.current:0;
+  $('voltageValue').textContent=n(u,2);$('currentValue').textContent=n(i,1);$('timeValue').textContent=timeText(run.elapsed);
+  $('timeValue').title=n(run.elapsed,1)+' s';
+  const p=run.params||state.settings, lim=M.describe(p).limit;
+  $('currentMeter').classList.toggle('over',i>lim);
+  $('timerFoot').textContent=run.status==='completed'?'Yakuniy vaqt: '+n(run.elapsed,1)+' s':run.status==='paused'?'Pauza · virtual vaqt to‘xtatildi':'Virtual vaqt · tezlik '+speed+'×';
+  $('voltageValue').parentElement.nextElementSibling.textContent=run.status==='completed'?'Erishilgan eng katta RMS qiymat':'O‘zgaruvchan kuchlanish · RMS';
+  $('currentValue').parentElement.nextElementSibling.textContent=run.status==='completed'?'Eng katta tok · RMS':'Sizib o‘tuvchi model toki · RMS';
+  $('durationHint').textContent='/ '+p.duration+' s';
+  const progress=Math.min(100,run.elapsed/p.duration*100);
+  $('progressBar').style.width=progress+'%';$('progressTrack').setAttribute('aria-valuenow',String(Math.round(progress)));
+  $('progressBar').style.background=run.result==='breakdown'?'var(--red)':run.result==='over'?'var(--orange)':'var(--blue)';
+  $('chartEmpty').hidden=run.samples.length>1;
+}
+function updateScene() {
+  if(!scene)return;
+  const s=run.samples[run.samples.length-1], p=run.params||state.settings;
+  scene.update({device:p.device,liquid:p.liquid,temperature:p.temperature,voltage:run.status==='completed'?run.peakVoltage:s?s.voltage:0,current:run.status==='completed'?run.peakCurrent:s?s.current:0,progress:run.elapsed/p.duration,running:run.status==='running',phase:run.status==='completed'?(run.result==='pass'?'completed':'fault'):run.status==='running'?(s&&s.phase||'ramp'):run.status==='paused'?'paused':'idle',result:run.result});
+}
+function resetRun(showMessage=false) {
+  run={status:'idle',elapsed:0,samples:[],params:null,peakCurrent:0,peakVoltage:0,result:null,snapshot:null};
+  lastStamp=0;accumulator=0;hoverT=null;state.pending=null;$('resultBanner').hidden=true;
+  updateControls();updateMeters();drawLive();updateScene();persist();
+  if(showMessage)toast('Sinov nol holatga qaytarildi. Saqlangan natijalar jurnalda qoldi.');
+}
+function changeParameter(key,value) {
+  if(run.status==='running'||run.status==='paused')return;
+  if(run.status!=='idle'||run.samples.length)resetRun();
+  state.settings[key]=value;syncControls();scheduleSave();
+}
+function chooseVariant(id,navigate=false) {
+  if(run.status==='running'||run.status==='paused'){toast('Variantni almashtirishdan oldin sinovni tugating yoki qayta boshlash tugmasini bosing.');return;}
+  state.activeVariant=id;state.settings=copyParams(D.variants[id-1]);resetRun();syncControls();renderVariants();renderWorksheet();persist();
+  if(navigate)showView('lab');
+}
+function startTest() {
+  if(run.status==='running'||run.status==='paused')return;
+  try { M.validate(state.settings); } catch(e) { toast(e.message);return; }
+  run={status:'running',elapsed:0,samples:[M.sample(state.settings,0)],params:{...state.settings},peakCurrent:0,peakVoltage:0,result:null,snapshot:null};
+  state.pending=null;lastStamp=0;accumulator=0;hoverT=null;$('resultBanner').hidden=true;
+  updateControls();updateMeters();drawLive();updateScene();
+}
+function pauseTest() {
+  if(run.status==='running'){run.status='paused';lastStamp=0;toast('Sinov pauzaga qo‘yildi. Taymer va hisoblash to‘xtadi.');}
+  else if(run.status==='paused'){run.status='running';lastStamp=0;}
+  updateControls();updateMeters();updateScene();
+}
+function completeTest(breakdown) {
+  const p=run.params, limit=M.describe(p).limit;
+  run.status='completed';run.result=breakdown?'breakdown':run.peakCurrent>limit?'over':'pass';
+  const record={id:Date.now().toString(36)+'-'+Math.floor(performance.now()).toString(36),variant:state.activeVariant,params:{...p},elapsed:Number(run.elapsed.toFixed(3)),peakCurrent:run.peakCurrent,peakVoltage:run.peakVoltage,limit,result:run.result,trace:compactTrace(run.samples),name:state.profile.name,group:state.profile.group,when:new Date().toISOString(),modelVersion:'1.0'};
+  run.snapshot=record;state.pending=record;state.lastByVariant[state.activeVariant]=record;
+  renderResult();updateControls();updateMeters();drawLive();updateScene();renderWorksheet();persist();
+}
+function renderResult() {
+  const r=run.snapshot;if(!r){$('resultBanner').hidden=true;return;}
+  $('resultBanner').hidden=false;$('resultBanner').className='result-banner '+(r.result==='over'?'warning':r.result==='breakdown'?'danger':'');
+  $('resultIcon').setAttribute('href',r.result==='pass'?'#i-check':'#i-info');$('resultTitle').textContent=labels[r.result];
+  let text='Imax = '+n(r.peakCurrent,1)+' µA; shartli chegara '+n(r.limit,0)+' µA. ';
+  if(r.result==='breakdown')text+='Model '+n(r.elapsed,1)+' s da to‘xtadi. Erishilgan U = '+n(r.peakVoltage,2)+' kV (topshiriq: '+r.params.voltage+' kV). Yoy toki hisoblanmagan.';
+  else text+='Sinov '+n(r.elapsed,0)+' s davom etdi. Natija faqat o‘quv modeliga tegishli.';
+  $('resultText').textContent=text;
+}
+function saveResult() {
+  if(!run.snapshot)return;
+  const name=$('studentName').value.trim(),group=$('studentGroup').value.trim();
+  $('studentName').classList.toggle('invalid',!name);$('studentGroup').classList.toggle('invalid',!group);
+  if(!name||!group){toast('Natijani saqlash uchun F.I.Sh. va guruhni kiriting.');(!name?$('studentName'):$('studentGroup')).focus();return;}
+  if(state.records.some(r=>r.id===run.snapshot.id)){toast('Bu sinov allaqachon saqlangan.');return;}
+  if(state.records.length>=100){toast('Jurnalda 100 ta sinov bor. CSV yuklab oling, keyin keraksiz yozuvlarni o‘chiring.');return;}
+  const record={...run.snapshot,name,group};run.snapshot=record;state.profile={name,group};state.records.push(record);state.lastByVariant[record.variant]=record;state.pending=record;
+  const ok=persist();renderResults();renderVariants();renderWorksheet();updateControls();toast(ok?'Sinov natijasi jurnalga va brauzerga saqlandi.':'Natija joriy jurnalda. Brauzerda saqlab bo‘lmadi — CSV yoki PDF yuklab oling.');
+}
+function tick(stamp) {
+  if(run.status==='running') {
+    if(!lastStamp)lastStamp=stamp;
+    const realDelta=Math.min((stamp-lastStamp)/1000,.25);lastStamp=stamp;accumulator+=realDelta*speed;
+    let steps=0;
+    while(accumulator>=.1&&run.status==='running'&&steps<100) {
+      accumulator-=.1;steps++;run.elapsed=Math.min(run.params.duration,Math.round((run.elapsed+.1)*1000)/1000);
+      const s=M.sample(run.params,run.elapsed);run.samples.push(s);run.peakCurrent=Math.max(run.peakCurrent,s.current);run.peakVoltage=Math.max(run.peakVoltage,s.voltage);
+      if(s.breakdown||run.elapsed>=run.params.duration)completeTest(s.breakdown);
+    }
+    updateMeters();updateScene();
+    if(stamp-lastDraw>70){drawLive();lastDraw=stamp;updateControls();}
+  } else lastStamp=0;
+  requestAnimationFrame(tick);
+}
+function roundMax(v) { const power=Math.pow(10,Math.floor(Math.log10(Math.max(v,.01))));return Math.ceil(v/power*2)/2*power; }
+function renderChart(canvas,samples,params,options={}) {
+  const w=options.width||Math.max(280,canvas.parentElement.clientWidth||600),h=options.height||canvas.parentElement.clientHeight||275;
+  const dpr=options.export?1:Math.min(window.devicePixelRatio||1,2);
+  if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
+  const ctx=canvas.getContext('2d');if(!ctx)return;
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#ffffff';ctx.fillRect(0,0,w,h);
+  const left=w<400?42:49,right=w-18,top=24,bottom=h-26,gap=45,plotH=(bottom-top-gap)/2;
+  const limit=M.describe(params).limit;
+  const maxU=roundMax(Math.max(params.voltage,1)*1.12),maxI=roundMax(Math.max(limit, ...samples.map(s=>s.current),30)*1.15);
+  const duration=params.duration, x=t=>left+(right-left)*Math.min(duration,Math.max(0,t))/duration;
+  const panels=[{key:'voltage',max:maxU,y:top,color:'#3375d9',label:'Kuchlanish · kV RMS'}, {key:'current',max:maxI,y:top+plotH+gap,color:'#cf9a0a',label:'Sizib o‘tuvchi tok · µA RMS'}];
+  ctx.lineWidth=1;ctx.textBaseline='middle';
+  panels.forEach((p,index)=>{
+    ctx.font='600 10px "Segoe UI",Arial';ctx.fillStyle='#536782';ctx.textAlign='left';ctx.fillText(p.label,left,p.y-12);
+    for(let j=0;j<=3;j++) {
+      const y=p.y+plotH*j/3;ctx.strokeStyle='#e8edf4';ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(right,y);ctx.stroke();
+      ctx.fillStyle='#7b8ba0';ctx.font='9px "Segoe UI",Arial';ctx.textAlign='right';const v=p.max*(1-j/3);ctx.fillText(v>=10?Math.round(v):n(v,1),left-7,y);
+    }
+    for(let j=0;j<=6;j++){
+      const xx=x(duration*j/6);ctx.strokeStyle='#edf1f6';ctx.beginPath();ctx.moveTo(xx,p.y);ctx.lineTo(xx,p.y+plotH);ctx.stroke();
+      if(index===1){ctx.fillStyle='#7b8ba0';ctx.textAlign='center';ctx.fillText(n(duration*j/6,duration%6===0?0:1),xx,p.y+plotH+13);}
+    }
+    const y=v=>p.y+plotH-Math.min(p.max,Math.max(0,v))/p.max*plotH;
+    if(index===1){ctx.setLineDash([4,4]);ctx.strokeStyle='#d88c60';ctx.beginPath();ctx.moveTo(left,y(limit));ctx.lineTo(right,y(limit));ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#aa6e4a';ctx.textAlign='right';ctx.font='9px "Segoe UI",Arial';ctx.fillText('Chegara: '+n(limit,0)+' µA',right-2,y(limit)-7);}
+    if(samples.length>1){
+      ctx.beginPath();ctx.moveTo(x(samples[0].t),p.y+plotH);samples.forEach(s=>ctx.lineTo(x(s.t),y(s[p.key])));ctx.lineTo(x(samples[samples.length-1].t),p.y+plotH);ctx.closePath();ctx.fillStyle=index===0?'#3375d90b':'#dcaa140d';ctx.fill();
+      ctx.strokeStyle=p.color;ctx.lineWidth=2;ctx.beginPath();samples.forEach((s,i)=>i===0?ctx.moveTo(x(s.t),y(s[p.key])):ctx.lineTo(x(s.t),y(s[p.key])));ctx.stroke();ctx.lineWidth=1;
+      const last=samples[samples.length-1];ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(x(last.t),y(last[p.key]),3,0,Math.PI*2);ctx.fill();
+      if(options.hover!=null){const nearest=samples.reduce((a,b)=>Math.abs(a.t-options.hover)<=Math.abs(b.t-options.hover)?a:b);ctx.setLineDash([3,3]);ctx.strokeStyle='#9baabe';ctx.beginPath();ctx.moveTo(x(nearest.t),p.y);ctx.lineTo(x(nearest.t),p.y+plotH);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(x(nearest.t),y(nearest[p.key]),4,0,Math.PI*2);ctx.fill();}
+    }
+  });
+  ctx.font='9px "Segoe UI",Arial';ctx.textAlign='right';ctx.fillStyle='#7b8ba0';ctx.fillText('Vaqt, s',right,h-5);
+  canvas._chartLayout={left,right,duration,width:w};
+}
+function drawLive(){if(activeView==='lab')renderChart($('liveChart'),run.samples,run.params||state.settings,{hover:hoverT});}
+function drawWorksheet(){if(activeView!=='variants')return;const r=lastRecord();renderChart($('worksheetChart'),r?expandTrace(r.trace):[],r?r.params:copyParams(D.variants[state.activeVariant-1]));}
+function resultRows(records,actions=false) {
+  if(!records.length)return '<tr><td colspan="'+(actions?8:7)+'" class="table-empty">Hozircha natija yo‘q. Sinovni yakunlang va “Natijani saqlash” tugmasini bosing.</td></tr>';
+  return records.map(r=>'<tr><td><span class="primary-text">'+escape(D.devices[r.params.device].short)+'</span><small>'+r.variant+'-variant · '+escape(r.name||'F.I.Sh. kiritilmagan')+'</small><small>'+escape(r.group)+'</small></td><td>'+escape(D.liquids[r.params.liquid].short)+'</td><td>'+n(r.params.temperature,0)+' °C</td><td>'+n(r.peakVoltage,2)+' kV<small>Berilgan: '+n(r.params.voltage,1)+' kV</small></td><td>'+n(r.elapsed,1)+' s<small>Berilgan: '+r.params.duration+' s</small></td><td>'+n(r.peakCurrent,1)+' µA<small>Imax · RMS</small></td><td><span class="status-label '+r.result+'">'+escape(labels[r.result])+'</span></td>'+(actions?'<td><button class="icon-btn delete-record" data-id="'+escape(r.id)+'" title="Yozuvni o‘chirish" aria-label="'+r.variant+'-variant yozuvini o‘chirish"><svg class="icon"><use href="#i-trash"/></svg></button></td>':'')+'</tr>').join('');
+}
+function renderResults() {
+  $('resultsBody').innerHTML=resultRows([...state.records].reverse(),true);$('navCount').textContent=state.records.length;$('totalRuns').textContent=state.records.length;$('passRuns').textContent=state.records.filter(r=>r.result==='pass').length;$('doneVariants').innerHTML=new Set(state.records.map(r=>r.variant)).size+'<span style="font-size:14px"> / 10</span>';
+  ['allCsv','printResults','clearResults'].forEach(id=>$(id).disabled=!state.records.length);
+}
+function renderVariants(){ $('variantGrid').innerHTML=D.variants.map(v=>'<button class="variant-card '+(v.id===state.activeVariant?'active':'')+'" data-variant="'+v.id+'" aria-pressed="'+(v.id===state.activeVariant)+'" aria-label="'+v.id+'-variant: '+escape(D.devices[v.device].short)+'"><strong>'+String(v.id).padStart(2,'0')+'</strong><span>'+escape(D.devices[v.device].short)+'</span><span>'+v.voltage+' kV · '+v.duration+' s</span>'+(state.records.some(r=>r.variant===v.id)?'<span class="done-mark">✓</span>':'')+'</button>').join(''); }
+function renderWorksheet() {
+  const v=D.variants[state.activeVariant-1],note=getNote();
+  $('worksheetTitle').textContent=v.id+'-variant';$('worksheetName').textContent=state.profile.name||'________________';$('worksheetGroup').textContent=state.profile.group||'________';$('variantTask').textContent=v.task;
+  const cells=[['Himoya vositasi',D.devices[v.device].label],['Suyuqlik',D.liquids[v.liquid].label],['Harorat',v.temperature+' °C'],['Kuchlanish',v.voltage+' kV RMS'],['Davomiylik',v.duration+' s']];
+  $('givenGrid').innerHTML=cells.map(c=>'<div class="given-cell"><span>'+escape(c[0])+'</span><strong>'+escape(c[1])+'</strong></div>').join('');
+  $('variantResults').innerHTML=resultRows(currentRecords());$('calculationNotes').value=note.calculation;$('conclusionNotes').value=note.conclusion;$('variantCsv').disabled=currentRecords().length===0;drawWorksheet();
+}
+function showView(view) {
+  if(!names[view])return;activeView=view;
+  document.querySelectorAll('.view').forEach(e=>e.hidden=e.id!=='view-'+view);
+  document.querySelectorAll('.nav-btn').forEach(b=>{const on=b.dataset.view===view;b.classList.toggle('active',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+  $('breadcrumb').textContent=names[view];
+  if(view==='variants'){renderVariants();renderWorksheet();}
+  if(view==='results')renderResults();
+  requestAnimationFrame(()=>{drawLive();drawWorksheet();if(scene&&view==='lab')scene.resize();});
+  if(window.scrollY>260)window.scrollTo({top:0,behavior:'smooth'});
+}
+function csvCell(value){let text=String(value==null?'':value);if(/^[\s]*[=+@-]/.test(text))text="'"+text;return '"'+text.replace(/"/g,'""')+'"';}
+function downloadBlob(blob,name) { const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000); }
+function downloadCsv(records,name) {
+  if(!records.length){toast('Avval kamida bitta natijani saqlang.');return;}
+  const head=['F.I.Sh.','Guruh','Variant','Himoya vositasi','Suyuqlik','Harorat (°C)','Kuchlanish — erishilgan RMS (kV)','Vaqt — amaldagi (s)','Tok — eng katta RMS (µA)','Natija','Berilgan kuchlanish (kV)','Berilgan davomiylik (s)','Shartli tok chegarasi (µA)','Sana (ISO)','Model','Hisoblashlar','Xulosa'];
+  const rows=records.map(r=>[r.name,r.group,r.variant,D.devices[r.params.device].label,D.liquids[r.params.liquid].label,r.params.temperature,n(r.peakVoltage,3),n(r.elapsed,2),n(r.peakCurrent,3),labels[r.result],r.params.voltage,r.params.duration,r.limit,r.when,'O‘quv simulyatsiyasi 1.0 — haqiqiy o‘lchov emas',getNote(r.variant).calculation,getNote(r.variant).conclusion]);
+  const csv='\ufeff'+[head,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n');downloadBlob(new Blob([csv],{type:'text/csv;charset=utf-8;'}),name);toast('CSV fayli tayyor. Uni Excel’da ham ochish mumkin.');
+}
+function graphImage(record,params){const c=document.createElement('canvas');renderChart(c,record?expandTrace(record.trace):[],record?record.params:params,{width:1000,height:265,export:true});return c.toDataURL('image/png');}
+function printHead(subtitle){return '<div class="print-heading"><div class="kicker">ELEKTROLAB · VIRTUAL LABORATORIYA</div><h1>'+escape(D.title)+'</h1><p>'+escape(subtitle)+'</p></div><div class="print-meta"><span><b>F.I.Sh.:</b> '+escape(state.profile.name||'________________________')+'</span><span><b>Guruh:</b> '+escape(state.profile.group||'____________')+'</span></div><div class="print-notice">O‘quv simulyatsiyasi. Qiymatlar hisoblash modelidan olingan; ular haqiqiy o‘lchov, sinov me’yori yoki himoya vositasining yaroqlilik sertifikati emas.</div>';}
+function printTable(records){return '<table class="print-table"><thead><tr><th>Himoya vositasi</th><th>Suyuqlik</th><th>Harorat</th><th>Kuchlanish</th><th>Vaqt</th><th>Tok</th><th>Natija</th></tr></thead><tbody>'+(records.length?resultRows(records):'<tr style="height:38px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr style="height:38px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>')+'</tbody></table>';}
+function preparePrint(mode) {
+  if(mode==='results') {
+    $('printArea').innerHTML=printHead('Saqlangan tajribalar jurnali')+printTable(state.records)+'<p>Tok — eng katta RMS qiymat. Kuchlanish — erishilgan eng katta qiymat. Vaqt — amaldagi virtual davomiylik.</p><div class="print-footer">Barcha natijalar ElektroLab o‘quv modeliga tegishli. Manba: ushbu brauzerda saqlangan jurnal.</div>';
+  } else {
+    const v=D.variants[state.activeVariant-1],note=getNote(),r=lastRecord(),records=currentRecords();
+    const extra=r&&!records.some(x=>x.id===r.id)?[...records,r]:records;
+    let html=printHead(v.id+'-variant · mustaqil tajriba varaqasi');
+    html+='<div class="print-block"><h2>Berilgan parametrlar</h2><table class="given-print"><tbody><tr><td><b>Himoya vositasi</b></td><td>'+escape(D.devices[v.device].label)+'</td><td><b>Suyuqlik</b></td><td>'+escape(D.liquids[v.liquid].label)+'</td></tr><tr><td><b>Harorat</b></td><td>'+v.temperature+' °C</td><td><b>Kuchlanish / vaqt</b></td><td>'+v.voltage+' kV / '+v.duration+' s</td></tr></tbody></table><p><b>Topshiriq:</b> '+escape(v.task)+'</p></div>';
+    html+='<h2>Natijalar jadvali</h2>'+printTable(extra)+'<p>Tok: eng katta RMS qiymat. Kuchlanish va vaqt: erishilgan qiymatlar; berilgan qiymatlar katak ostida.</p>';
+    html+='<div class="print-block"><h2>Oxirgi sinov grafigi</h2><img class="print-graph" alt="Kuchlanish va tok grafigi" src="'+graphImage(r,copyParams(v))+'"><p>Grafik: '+(r?'U = '+r.params.voltage+' kV, T = '+r.params.temperature+' °C, '+escape(D.liquids[r.params.liquid].label):'tajribadan keyin to‘ldiriladi')+'.</p></div>';
+    html+='<div class="print-block"><h2>Hisoblash va kuzatishlar</h2><div class="print-notes '+(note.calculation?'':'blank')+'">'+escape(note.calculation)+'</div></div><div class="print-block"><h2>Xulosa</h2><div class="print-notes '+(note.conclusion?'':'blank')+'">'+escape(note.conclusion)+'</div></div><div class="print-footer">ElektroLab · '+v.id+'-variant · U va I — RMS qiymatlar. Elektr teshilishidan keyingi yoy toki hisoblanmaydi.</div>';
+    $('printArea').innerHTML=html;
+  }
+}
+let printingMode=null;
+function doPrint(mode){printingMode=mode;preparePrint(mode);setTimeout(()=>window.print(),90);}
+window.addEventListener('beforeprint',()=>{if(!printingMode)preparePrint(activeView==='results'?'results':'variant');});
+window.addEventListener('afterprint',()=>{printingMode=null;});
+let wordFiles=null;
+async function createWord() {
+  $('createWord').disabled=true;$('createWordText').textContent='Hujjatlar yaratilmoqda…';$('docStatus').className='doc-status';$('docStatus').textContent='Word kutubxonasi yuklanmoqda va hujjatlar tayyorlanmoqda…';
+  try{
+    const docs=await window.prepareWordFiles(D);wordFiles=docs;
+    [['manual','downloadManual','manualPending'],['variants','downloadVariants','variantsPending']].forEach(([key,link,pending])=>{$(link).hidden=false;$(pending).hidden=true;});
+    $('docStatus').textContent='Ikkala haqiqiy Word hujjati tayyor: qo‘llanma '+Math.round(docs.manual.blob.size/1024)+' KB, variantlar '+Math.round(docs.variants.blob.size/1024)+' KB. Yuqoridagi tugmalar bilan yuklab oling.';$('createWordText').textContent='Word fayllarini qayta yaratish';toast('Qo‘llanma va 10 ta variant tayyor.');
+  } catch(e){$('docStatus').className='doc-status error';$('docStatus').textContent=e.message||'Word faylini yaratishda xato yuz berdi. Qayta urinib ko‘ring.';$('createWordText').textContent='Word fayllarini yaratish';}
+  finally{$('createWord').disabled=false;}
+}
+// Interface initialization and direct user actions.
+$('variantSelect').innerHTML=D.variants.map(v=>'<option value="'+v.id+'">'+v.id+'-variant · '+escape(D.devices[v.device].short)+'</option>').join('');
+$('studentName').value=state.profile.name;$('studentGroup').value=state.profile.group;
+$('theoryGrid').innerHTML=D.theory.map((item,i)=>'<article class="theory-item"><span class="number">0'+(i+1)+'</span><h3>'+escape(item.title)+'</h3><p>'+escape(item.text)+'</p></article>').join('');
+$('modelExplanation').textContent=D.modelDetails.summary+' '+D.modelDetails.timing;
+$('modelSources').innerHTML=D.sources.map(s=>'<a href="'+escape(s.url)+'" target="_blank" rel="noopener noreferrer">'+escape(s.title)+'</a>').join('');
+// All model coefficients remain readable, without making the short theory lengthy.
+const equationDetail=document.createElement('p');equationDetail.style.cssText='font-size:10px;margin-top:12px;overflow-wrap:anywhere';equationDetail.textContent=D.modelDetails.temperature+' '+D.modelDetails.breakdown+' '+D.modelDetails.coefficients;$('modelSources').before(equationDetail);
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.goto)));
+document.querySelectorAll('[data-device]').forEach(b=>b.addEventListener('click',()=>changeParameter('device',b.dataset.device)));
+$('liquidSelect').addEventListener('change',e=>changeParameter('liquid',e.target.value));
+['temperature','voltage','duration'].forEach(key=>{
+  $(key+'Range').addEventListener('input',e=>changeParameter(key,Number(e.target.value)));
+  $(key+'Input').addEventListener('change',e=>{
+    const input=e.target,lo=Number(input.min),hi=Number(input.max),step=Number(input.step);let value=Number(input.value);
+    if(!input.value.trim()||!Number.isFinite(value)||value<lo||value>hi){toast('Qiymat '+lo+'–'+hi+' oralig‘ida bo‘lishi kerak.');input.value=state.settings[key];return;}
+    value=Math.round(value/step)*step;changeParameter(key,value);
+  });
+});
+document.querySelectorAll('[data-speed]').forEach(b=>b.addEventListener('click',()=>{speed=Number(b.dataset.speed);document.querySelectorAll('[data-speed]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});updateMeters();}));
+$('variantSelect').addEventListener('change',e=>chooseVariant(Number(e.target.value)));
+$('variantGrid').addEventListener('click',e=>{const b=e.target.closest('[data-variant]');if(b)chooseVariant(Number(b.dataset.variant));});
+['studentName','studentGroup'].forEach(id=>$(id).addEventListener('input',()=>{state.profile={name:$('studentName').value.trim(),group:$('studentGroup').value.trim()};$(id).classList.remove('invalid');$('worksheetName').textContent=state.profile.name||'________________';$('worksheetGroup').textContent=state.profile.group||'________';scheduleSave();}));
+$('startTest').addEventListener('click',startTest);$('pauseTest').addEventListener('click',pauseTest);$('resetTest').addEventListener('click',()=>resetRun(true));$('saveResult').addEventListener('click',saveResult);
+$('runVariant').addEventListener('click',()=>{if(run.status==='running'||run.status==='paused'){showView('lab');return;}chooseVariant(state.activeVariant,true);toast('Variant parametrlari qo‘yildi. Sinovni boshlash tugmasini bosing.');});
+[['calculationNotes','calculation'],['conclusionNotes','conclusion']].forEach(([id,key])=>{$(id).maxLength=16000;$(id).addEventListener('input',()=>{getNote()[key]=$(id).value;scheduleSave();$('notesStatus').textContent='Yozuvlar avtomatik saqlanmoqda…';});});
+$('saveNotes').addEventListener('click',()=>{const ok=persist(true);$('notesStatus').textContent=ok?'Yozuvlar brauzerda saqlandi.':'Saqlash cheklangan. PDF yoki CSV yuklab oling.';});
+$('variantCsv').addEventListener('click',()=>downloadCsv(currentRecords(),'ElektroLab_'+state.activeVariant+'_variant.csv'));
+$('allCsv').addEventListener('click',()=>downloadCsv(state.records,'ElektroLab_natijalar.csv'));
+$('printVariant').addEventListener('click',()=>doPrint('variant'));$('printResults').addEventListener('click',()=>doPrint('results'));
+$('resultsBody').addEventListener('click',e=>{const b=e.target.closest('.delete-record');if(!b)return;if(!confirm('Ushbu sinov yozuvi jurnaldan o‘chirilsinmi?'))return;const target=state.records.find(r=>r.id===b.dataset.id);state.records=state.records.filter(r=>r.id!==b.dataset.id);if(target&&state.lastByVariant[target.variant]&&state.lastByVariant[target.variant].id===target.id){const replacement=state.records.filter(r=>r.variant===target.variant).slice(-1)[0];if(replacement)state.lastByVariant[target.variant]=replacement;else delete state.lastByVariant[target.variant];}if(state.pending&&state.pending.id===b.dataset.id)state.pending=null;persist();renderResults();renderVariants();renderWorksheet();updateControls();});
+$('clearResults').addEventListener('click',()=>{if(!confirm('Jurnaldagi barcha '+state.records.length+' ta natija o‘chirilsinmi? Hisoblash yozuvlari va xulosalar saqlanib qoladi.'))return;state.records=[];state.lastByVariant={};state.pending=null;resetRun();renderResults();renderVariants();renderWorksheet();persist();toast('Natijalar jurnali tozalandi.');});
+$('createWord').addEventListener('click',createWord);
+$('downloadManual').addEventListener('click',()=>{if(wordFiles){downloadBlob(wordFiles.manual.blob,wordFiles.manual.name);toast('Qo‘llanma fayli yuklab olishga yuborildi. Brauzer yuklashlar ro‘yxatini tekshiring.');}});
+$('downloadVariants').addEventListener('click',()=>{if(wordFiles){downloadBlob(wordFiles.variants.blob,wordFiles.variants.name);toast('Variantlar fayli yuklab olishga yuborildi. Brauzer yuklashlar ro‘yxatini tekshiring.');}});
+$('resetCamera').addEventListener('click',()=>{if(scene)scene.resetCamera();else toast('3D ko‘rinish yuklanmadi. Internet yoki WebGL imkoniyatini tekshiring.');});
+let enlarged=false;
+$('expandScene').addEventListener('click',()=>{enlarged=!enlarged;$('sceneWrap').style.height=enlarged?'min(72vh, 760px)':'';$('expandScene').title=enlarged?'Oddiy ko‘rinishga qaytish':'3D ko‘rinishni kengaytirish';$('expandScene').setAttribute('aria-label',$('expandScene').title);if(scene)scene.resize();});
+$('liveChart').addEventListener('pointermove',e=>{if(!run.samples.length)return;const c=$('liveChart'),rect=c.getBoundingClientRect(),l=c._chartLayout;if(!l)return;hoverT=Math.max(0,Math.min(l.duration,((e.clientX-rect.left)*l.width/rect.width-l.left)/(l.right-l.left)*l.duration));const s=run.samples.reduce((a,b)=>Math.abs(a.t-hoverT)<=Math.abs(b.t-hoverT)?a:b);$('chartReadout').textContent='t = '+n(s.t,1)+' s  ·  U = '+n(s.voltage,2)+' kV RMS  ·  I = '+n(s.current,1)+' µA RMS'+(Number.isFinite(s.specimenVoltage)?'  ·  Unamuna = '+n(s.specimenVoltage,2)+' kV':'');drawLive();});
+$('liveChart').addEventListener('pointerleave',()=>{hoverT=null;drawLive();$('chartReadout').textContent='Grafik ustiga kursorni olib boring — qiymatlarni ko‘ring.';});
+window.addEventListener('resize',()=>{drawLive();drawWorksheet();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&run.status==='running'){run.status='paused';lastStamp=0;updateControls();updateMeters();updateScene();toast('Sahifadan chiqilgani uchun sinov pauzaga qo‘yildi.');}});
+window.addEventListener('pagehide',()=>{persist();});
+markStorage(storageOK);syncControls();renderVariants();renderResults();renderWorksheet();
+// Restore the latest completed, unsaved/current run after a refresh.
+if(state.pending&&state.pending.variant===state.activeVariant){const r=state.pending;run={status:'completed',elapsed:r.elapsed,samples:expandTrace(r.trace),params:{...r.params},peakCurrent:r.peakCurrent,peakVoltage:r.peakVoltage,result:r.result,snapshot:r};state.settings={...r.params};syncControls();renderResult();}
+$('sceneMount').replaceChildren();
+window.createDielectricScene($('sceneMount'),{onSelect(info){$('objectTitle').textContent=info.title;$('objectText').textContent=info.text;},onError(){ $('objectTitle').textContent='3D ko‘rinish mavjud emas';$('objectText').textContent='Sinov, grafiklar va eksport ishlaydi. Internet/WebGL imkoniyatini tekshiring.'; }}).then(value=>{scene=value;if(scene&&scene.fallback){document.querySelector('.scene-hint').hidden=true;$('objectTitle').textContent='Soddalashtirilgan stend';$('objectText').textContent='WebGL mavjud emas. Stend va o‘lchagichlar soddalashtirilgan ko‘rinishda ishlamoqda.';}updateScene();}).catch(e=>{const p=document.createElement('p');p.className='scene-loading';p.textContent='3D ko‘rinishni ishga tushirib bo‘lmadi. Hisoblash va natijalar ishlashda davom etadi.';$('sceneMount').replaceChildren(p);});
+requestAnimationFrame(tick);
+})();
+
+</script>
+</body>
+</html>
